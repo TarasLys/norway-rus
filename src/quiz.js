@@ -1,475 +1,947 @@
 // Список глаголов с формами
 const verbs = [
-        {
-        "infinitiv": "være",
+    
+    {
+        "infinitiv": "å være",
         "presens": "er",
         "preteritum": "var",
-        "perfektum": "vært"
+        "perfektum": "har vært"
     },
     {
-        "infinitiv": "ha",
+        "infinitiv": "å ha",
         "presens": "har",
         "preteritum": "hadde",
-        "perfektum": "hatt"
+        "perfektum": "har hatt"
     },
     {
-        "infinitiv": "gjøre",
+        "infinitiv": "å gjøre",
         "presens": "gjør",
         "preteritum": "gjorde",
-        "perfektum": "gjort"
+        "perfektum": "har gjort"
     },
     {
-        "infinitiv": "si",
+        "infinitiv": "å si",
         "presens": "sier",
         "preteritum": "sa",
-        "perfektum": "sagt"
+        "perfektum": "har sagt"
     },
     {
-        "infinitiv": "gå",
+        "infinitiv": "å gå",
         "presens": "går",
         "preteritum": "gikk",
-        "perfektum": "gått"
+        "perfektum": "har gått"
     },
     {
-        "infinitiv": "komme",
+        "infinitiv": "å komme",
         "presens": "kommer",
         "preteritum": "kom",
-        "perfektum": "kommet"
+        "perfektum": "har kommet"
     },
     {
-        "infinitiv": "se",
+        "infinitiv": "å se",
         "presens": "ser",
         "preteritum": "så",
-        "perfektum": "sett"
+        "perfektum": "har sett"
     },
     {
-        "infinitiv": "bli",
+        "infinitiv": "å bli",
         "presens": "blir",
         "preteritum": "ble",
-        "perfektum": "blitt"
+        "perfektum": "har blitt"
     },
     {
-        "infinitiv": "få",
+        "infinitiv": "å få",
         "presens": "får",
         "preteritum": "fikk",
-        "perfektum": "fått"
+        "perfektum": "har fått"
     },
     {
-        "infinitiv": "ta",
+        "infinitiv": "å ta",
         "presens": "tar",
         "preteritum": "tok",
-        "perfektum": "tatt"
+        "perfektum": "har tatt"
     },
     {
-        "infinitiv": "kunne",
+        "infinitiv": "å kunne",
         "presens": "kan",
         "preteritum": "kunne",
-        "perfektum": "kunnet"
+        "perfektum": "har kunnet"
     },
     {
-        "infinitiv": "ville",
+        "infinitiv": "å ville",
         "presens": "vil",
         "preteritum": "ville",
-        "perfektum": "villet"
+        "perfektum": "har villet"
     },
     {
-        "infinitiv": "skulle",
+        "infinitiv": "å skulle",
         "presens": "skal",
         "preteritum": "skulle",
-        "perfektum": "skullet"
+        "perfektum": "har skullet"
     },
     {
-        "infinitiv": "måtte",
+        "infinitiv": "å måtte",
         "presens": "må",
         "preteritum": "måtte",
-        "perfektum": "måttet"
+        "perfektum": "har måttet"
     },
     {
-        "infinitiv": "vite",
+        "infinitiv": "å vite",
         "presens": "vet",
         "preteritum": "visste",
-        "perfektum": "visst"
+        "perfektum": "har visst"
     },
     {
-        "infinitiv": "tro",
+        "infinitiv": "å tro",
         "presens": "tror",
         "preteritum": "trodde",
-        "perfektum": "trodd"
+        "perfektum": "har trodd"
     },
     {
-        "infinitiv": "tenke",
+        "infinitiv": "å tenke",
         "presens": "tenker",
         "preteritum": "tenkte",
-        "perfektum": "tenkt"
+        "perfektum": "har tenkt"
     },
     {
-        "infinitiv": "like",
+        "infinitiv": "å like",
         "presens": "liker",
         "preteritum": "likte",
-        "perfektum": "likt"
+        "perfektum": "har likt"
     },
     {
-        "infinitiv": "elske",
+        "infinitiv": "å elske",
         "presens": "elsker",
         "preteritum": "elsket",
-        "perfektum": "elsket"
+        "perfektum": "har elsket"
     },
     {
-        "infinitiv": "høre",
+        "infinitiv": "å høre",
         "presens": "hører",
         "preteritum": "hørte",
-        "perfektum": "hørt"
+        "perfektum": "har hørt"
     },
     {
-        "infinitiv": "finne",
+        "infinitiv": "å finne",
         "presens": "finner",
         "preteritum": "fant",
-        "perfektum": "funnet"
+        "perfektum": "har funnet"
     },
     {
-        "infinitiv": "spørre",
+        "infinitiv": "å spørre",
         "presens": "spør",
         "preteritum": "spurte",
-        "perfektum": "spurt"
+        "perfektum": "har spurt"
     },
     {
-        "infinitiv": "kjenne",
+        "infinitiv": "å kjenne",
         "presens": "kjenner",
         "preteritum": "kjente",
-        "perfektum": "kjent"
+        "perfektum": "har kjent"
     },
     {
-        "infinitiv": "sove",
+        "infinitiv": "å sove",
         "presens": "sover",
         "preteritum": "sov",
-        "perfektum": "sovet"
+        "perfektum": "har sovet"
     },
     {
-        "infinitiv": "leve",
+        "infinitiv": "å leve",
         "presens": "lever",
         "preteritum": "levde",
-        "perfektum": "levd"
+        "perfektum": "har levd"
     },
     {
-        "infinitiv": "dø",
+        "infinitiv": "å dø",
         "presens": "dør",
         "preteritum": "døde",
-        "perfektum": "dødd"
+        "perfektum": "har dødd"
     },
     {
-        "infinitiv": "løpe",
+        "infinitiv": "å løpe",
         "presens": "løper",
         "preteritum": "løp",
-        "perfektum": "løpt"
+        "perfektum": "har løpt"
     },
     {
-        "infinitiv": "skrive",
+        "infinitiv": "å skrive",
         "presens": "skriver",
         "preteritum": "skrev",
-        "perfektum": "skrevet"
+        "perfektum": "har skrevet"
     },
     {
-        "infinitiv": "lese",
+        "infinitiv": "å lese",
         "presens": "leser",
         "preteritum": "leste",
-        "perfektum": "lest"
+        "perfektum": "har lest"
     },
     {
-        "infinitiv": "lage",
+        "infinitiv": "å lage",
         "presens": "lager",
         "preteritum": "laget",
-        "perfektum": "laget"
+        "perfektum": "har laget"
     },
     {
-        "infinitiv": "spise",
+        "infinitiv": "å spise",
         "presens": "spiser",
         "preteritum": "spiste",
-        "perfektum": "spist"
+        "perfektum": "har spist"
     },
     {
-        "infinitiv": "drikke",
+        "infinitiv": "å drikke",
         "presens": "drikker",
         "preteritum": "drakk",
-        "perfektum": "drukket"
+        "perfektum": "har drukket"
     },
     {
-        "infinitiv": "kjøpe",
+        "infinitiv": "å kjøpe",
         "presens": "kjøper",
         "preteritum": "kjøpte",
-        "perfektum": "kjøpt"
+        "perfektum": "har kjøpt"
     },
     {
-        "infinitiv": "selge",
+        "infinitiv": "å selge",
         "presens": "selger",
         "preteritum": "solgte",
-        "perfektum": "solgt"
+        "perfektum": "har solgt"
     },
     {
-        "infinitiv": "stå",
+        "infinitiv": "å stå",
         "presens": "står",
         "preteritum": "sto",
-        "perfektum": "stått"
+        "perfektum": "har stått"
     },
     {
-        "infinitiv": "sitte",
+        "infinitiv": "å sitte",
         "presens": "sitter",
         "preteritum": "satt",
-        "perfektum": "sittet"
+        "perfektum": "har sittet"
     },
     {
-        "infinitiv": "ligge",
+        "infinitiv": "å ligge",
         "presens": "ligger",
         "preteritum": "lå",
-        "perfektum": "ligget"
+        "perfektum": "har ligget"
     },
     {
-        "infinitiv": "gi",
+        "infinitiv": "å gi",
         "presens": "gir",
         "preteritum": "ga",
-        "perfektum": "gitt"
+        "perfektum": "har gitt"
     },
     {
-        "infinitiv": "ta imot",
+        "infinitiv": "å ta imot",
         "presens": "tar imot",
         "preteritum": "tok imot",
-        "perfektum": "tatt imot"
+        "perfektum": "har tatt imot"
     },
     {
-        "infinitiv": "kjøre",
+        "infinitiv": "å kjøre",
         "presens": "kjører",
         "preteritum": "kjørte",
-        "perfektum": "kjørt"
+        "perfektum": "har kjørt"
     },
     {
-        "infinitiv": "åpne",
+        "infinitiv": "å åpne",
         "presens": "åpner",
         "preteritum": "åpnet",
-        "perfektum": "åpnet"
+        "perfektum": "har åpnet"
     },
     {
-        "infinitiv": "lukke",
+        "infinitiv": "å lukke",
         "presens": "lukker",
         "preteritum": "lukket",
-        "perfektum": "lukket"
+        "perfektum": "har lukket"
     },
     {
-        "infinitiv": "hente",
+        "infinitiv": "å hente",
         "presens": "henter",
         "preteritum": "hentet",
-        "perfektum": "hentet"
+        "perfektum": "har hentet"
     },
     {
-        "infinitiv": "ringe",
+        "infinitiv": "å ringe",
         "presens": "ringer",
         "preteritum": "ringte",
-        "perfektum": "ringt"
+        "perfektum": "har ringt"
     },
     {
-        "infinitiv": "betale",
+        "infinitiv": "å betale",
         "presens": "betaler",
         "preteritum": "betalte",
-        "perfektum": "betalt"
+        "perfektum": "har betalt"
     },
-    {
-        "infinitiv": "forstå",
-        "presens": "forstår",
-        "preteritum": "forsto",
-        "perfektum": "forstått"
-    },
-    {
-        "infinitiv": "glemme",
-        "presens": "glemmer",
-        "preteritum": "glemte",
-        "perfektum": "glemt"
-    },
-    {
-        "infinitiv": "hjelpe",
-        "presens": "hjelper",
-        "preteritum": "hjalp",
-        "perfektum": "hjulpet"
-    },
-    {
-        "infinitiv": "fortelle",
-        "presens": "forteller",
-        "preteritum": "fortalte",
-        "perfektum": "fortalt"
-    },
-    {
-        "infinitiv": "vente",
-        "presens": "venter",
-        "preteritum": "ventet",
-        "perfektum": "ventet"
-    },
-    {
-        "infinitiv": "reise",
-        "presens": "reiser",
-        "preteritum": "reiste",
-        "perfektum": "reist"
-    },
-    {
-        "infinitiv": "prøve",
-        "presens": "prøver",
-        "preteritum": "prøvde",
-        "perfektum": "prøvd"
-    },
-    {
-        "infinitiv": "møte",
-        "presens": "møter",
-        "preteritum": "møtte",
-        "perfektum": "møtt"
-    },
-    {
-        "infinitiv": "arbeide",
-        "presens": "arbeider",
-        "preteritum": "arbeidet",
-        "perfektum": "arbeidet"
-    },
-    {
-        "infinitiv": "låne",
-        "presens": "låner",
-        "preteritum": "lånte",
-        "perfektum": "lånt"
-    },
-    {
-        "infinitiv": "selge",
-        "presens": "selger",
-        "preteritum": "solgte",
-        "perfektum": "solgt"
-    },
-    {
-        "infinitiv": "spille",
-        "presens": "spiller",
-        "preteritum": "spilte",
-        "perfektum": "spilt"
-    },
-    {
-        "infinitiv": "vite",
-        "presens": "vet",
-        "preteritum": "visste",
-        "perfektum": "visst"
-    },
-    {
-        "infinitiv": "bære",
-        "presens": "bærer",
-        "preteritum": "bar",
-        "perfektum": "båret"
-    },
-    {
-        "infinitiv": "kjøpe",
-        "presens": "kjøper",
-        "preteritum": "kjøpte",
-        "perfektum": "kjøpt"
-    },
-    {
-        "infinitiv": "bygge",
-        "presens": "bygger",
-        "preteritum": "bygget",
-        "perfektum": "bygget"
-    },
-    {
-        "infinitiv": "danse",
-        "presens": "danser",
-        "preteritum": "danset",
-        "perfektum": "danset"
-    },
-    {
-        "infinitiv": "tegne",
-        "presens": "tegner",
-        "preteritum": "tegnet",
-        "perfektum": "tegnet"
-    },
-    {
-        "infinitiv": "hoppe",
-        "presens": "hopper",
-        "preteritum": "hoppet",
-        "perfektum": "hoppet"
-    },
-    {
-        "infinitiv": "flytte",
-        "presens": "flytter",
-        "preteritum": "flyttet",
-        "perfektum": "flyttet"
-    },
-    {
-        "infinitiv": "studere",
-        "presens": "studerer",
-        "preteritum": "studerte",
-        "perfektum": "studert"
-    },
-    {
-        "infinitiv": "våkne",
-        "presens": "våkner",
-        "preteritum": "våknet",
-        "perfektum": "våknet"
-    },
-    {
-        "infinitiv": "bestille",
-        "presens": "bestiller",
-        "preteritum": "bestilte",
-        "perfektum": "bestilt"
-    },
-    {
-        "infinitiv": "planlegge",
-        "presens": "planlegger",
-        "preteritum": "planla",
-        "perfektum": "planlagt"
-    },
-    {
-        "infinitiv": "gråte",
-        "presens": "gråter",
-        "preteritum": "gråt",
-        "perfektum": "grått"
-    },
-    {
-        "infinitiv": "smile",
-        "presens": "smiler",
-        "preteritum": "smilte",
-        "perfektum": "smilt"
-    },
-    {
-        "infinitiv": "le",
-        "presens": "ler",
-        "preteritum": "lo",
-        "perfektum": "ledd"
-    },
-    {
-        "infinitiv": "klippe",
-        "presens": "klipper",
-        "preteritum": "klippet",
-        "perfektum": "klippet"
-    },
-    {
-        "infinitiv": "skynde",
-        "presens": "skynder",
-        "preteritum": "skyndte",
-        "perfektum": "skyndt"
-    },
-    {
-        "infinitiv": "bruke",
-        "presens": "bruker",
-        "preteritum": "brukte",
-        "perfektum": "brukt"
-    },
-    {
-        "infinitiv": "låse",
-        "presens": "låser",
-        "preteritum": "låste",
-        "perfektum": "låst"
-    },
-    {
-        "infinitiv": "huske",
-        "presens": "husker",
-        "preteritum": "husket",
-        "perfektum": "husket"
-    },
-    {
-        "infinitiv": "besøke",
-        "presens": "besøker",
-        "preteritum": "besøkte",
-        "perfektum": "besøkt"
-    }
 
-];
+
+    //     {
+    //     "infinitiv": "være",
+    //     "presens": "er",
+    //     "preteritum": "var",
+    //     "perfektum": "vært"
+    // },
+    // {
+    //     "infinitiv": "ha",
+    //     "presens": "har",
+    //     "preteritum": "hadde",
+    //     "perfektum": "hatt"
+    // },
+    // {
+    //     "infinitiv": "gjøre",
+    //     "presens": "gjør",
+    //     "preteritum": "gjorde",
+    //     "perfektum": "gjort"
+    // },
+    // {
+    //     "infinitiv": "si",
+    //     "presens": "sier",
+    //     "preteritum": "sa",
+    //     "perfektum": "sagt"
+    // },
+    // {
+    //     "infinitiv": "gå",
+    //     "presens": "går",
+    //     "preteritum": "gikk",
+    //     "perfektum": "gått"
+    // },
+    // {
+    //     "infinitiv": "komme",
+    //     "presens": "kommer",
+    //     "preteritum": "kom",
+    //     "perfektum": "kommet"
+    // },
+    // {
+    //     "infinitiv": "se",
+    //     "presens": "ser",
+    //     "preteritum": "så",
+    //     "perfektum": "sett"
+    // },
+    // {
+    //     "infinitiv": "bli",
+    //     "presens": "blir",
+    //     "preteritum": "ble",
+    //     "perfektum": "blitt"
+    // },
+    // {
+    //     "infinitiv": "få",
+    //     "presens": "får",
+    //     "preteritum": "fikk",
+    //     "perfektum": "fått"
+    // },
+    // {
+    //     "infinitiv": "ta",
+    //     "presens": "tar",
+    //     "preteritum": "tok",
+    //     "perfektum": "tatt"
+    // },
+    // {
+    //     "infinitiv": "kunne",
+    //     "presens": "kan",
+    //     "preteritum": "kunne",
+    //     "perfektum": "kunnet"
+    // },
+    // {
+    //     "infinitiv": "ville",
+    //     "presens": "vil",
+    //     "preteritum": "ville",
+    //     "perfektum": "villet"
+    // },
+    // {
+    //     "infinitiv": "skulle",
+    //     "presens": "skal",
+    //     "preteritum": "skulle",
+    //     "perfektum": "skullet"
+    // },
+    // {
+    //     "infinitiv": "måtte",
+    //     "presens": "må",
+    //     "preteritum": "måtte",
+    //     "perfektum": "måttet"
+    // },
+    // {
+    //     "infinitiv": "vite",
+    //     "presens": "vet",
+    //     "preteritum": "visste",
+    //     "perfektum": "visst"
+    // },
+    // {
+    //     "infinitiv": "tro",
+    //     "presens": "tror",
+    //     "preteritum": "trodde",
+    //     "perfektum": "trodd"
+    // },
+    // {
+    //     "infinitiv": "tenke",
+    //     "presens": "tenker",
+    //     "preteritum": "tenkte",
+    //     "perfektum": "tenkt"
+    // },
+    // {
+    //     "infinitiv": "like",
+    //     "presens": "liker",
+    //     "preteritum": "likte",
+    //     "perfektum": "likt"
+    // },
+    // {
+    //     "infinitiv": "elske",
+    //     "presens": "elsker",
+    //     "preteritum": "elsket",
+    //     "perfektum": "elsket"
+    // },
+    // {
+    //     "infinitiv": "høre",
+    //     "presens": "hører",
+    //     "preteritum": "hørte",
+    //     "perfektum": "hørt"
+    // },
+    // {
+    //     "infinitiv": "finne",
+    //     "presens": "finner",
+    //     "preteritum": "fant",
+    //     "perfektum": "funnet"
+    // },
+    // {
+    //     "infinitiv": "spørre",
+    //     "presens": "spør",
+    //     "preteritum": "spurte",
+    //     "perfektum": "spurt"
+    // },
+    // {
+    //     "infinitiv": "kjenne",
+    //     "presens": "kjenner",
+    //     "preteritum": "kjente",
+    //     "perfektum": "kjent"
+    // },
+    // {
+    //     "infinitiv": "sove",
+    //     "presens": "sover",
+    //     "preteritum": "sov",
+    //     "perfektum": "sovet"
+    // },
+    // {
+    //     "infinitiv": "leve",
+    //     "presens": "lever",
+    //     "preteritum": "levde",
+    //     "perfektum": "levd"
+    // },
+    // {
+    //     "infinitiv": "dø",
+    //     "presens": "dør",
+    //     "preteritum": "døde",
+    //     "perfektum": "dødd"
+    // },
+    // {
+    //     "infinitiv": "løpe",
+    //     "presens": "løper",
+    //     "preteritum": "løp",
+    //     "perfektum": "løpt"
+    // },
+    // {
+    //     "infinitiv": "skrive",
+    //     "presens": "skriver",
+    //     "preteritum": "skrev",
+    //     "perfektum": "skrevet"
+    // },
+    // {
+    //     "infinitiv": "lese",
+    //     "presens": "leser",
+    //     "preteritum": "leste",
+    //     "perfektum": "lest"
+    // },
+    // {
+    //     "infinitiv": "lage",
+    //     "presens": "lager",
+    //     "preteritum": "laget",
+    //     "perfektum": "laget"
+    // },
+    // {
+    //     "infinitiv": "spise",
+    //     "presens": "spiser",
+    //     "preteritum": "spiste",
+    //     "perfektum": "spist"
+    // },
+    // {
+    //     "infinitiv": "drikke",
+    //     "presens": "drikker",
+    //     "preteritum": "drakk",
+    //     "perfektum": "drukket"
+    // },
+    // {
+    //     "infinitiv": "kjøpe",
+    //     "presens": "kjøper",
+    //     "preteritum": "kjøpte",
+    //     "perfektum": "kjøpt"
+    // },
+    // {
+    //     "infinitiv": "selge",
+    //     "presens": "selger",
+    //     "preteritum": "solgte",
+    //     "perfektum": "solgt"
+    // },
+    // {
+    //     "infinitiv": "stå",
+    //     "presens": "står",
+    //     "preteritum": "sto",
+    //     "perfektum": "stått"
+    // },
+    // {
+    //     "infinitiv": "sitte",
+    //     "presens": "sitter",
+    //     "preteritum": "satt",
+    //     "perfektum": "sittet"
+    // },
+    // {
+    //     "infinitiv": "ligge",
+    //     "presens": "ligger",
+    //     "preteritum": "lå",
+    //     "perfektum": "ligget"
+    // },
+    // {
+    //     "infinitiv": "gi",
+    //     "presens": "gir",
+    //     "preteritum": "ga",
+    //     "perfektum": "gitt"
+    // },
+    // {
+    //     "infinitiv": "ta imot",
+    //     "presens": "tar imot",
+    //     "preteritum": "tok imot",
+    //     "perfektum": "tatt imot"
+    // },
+    // {
+    //     "infinitiv": "kjøre",
+    //     "presens": "kjører",
+    //     "preteritum": "kjørte",
+    //     "perfektum": "kjørt"
+    // },
+    // {
+    //     "infinitiv": "åpne",
+    //     "presens": "åpner",
+    //     "preteritum": "åpnet",
+    //     "perfektum": "åpnet"
+    // },
+    // {
+    //     "infinitiv": "lukke",
+    //     "presens": "lukker",
+    //     "preteritum": "lukket",
+    //     "perfektum": "lukket"
+    // },
+    // {
+    //     "infinitiv": "hente",
+    //     "presens": "henter",
+    //     "preteritum": "hentet",
+    //     "perfektum": "hentet"
+    // },
+    // {
+    //     "infinitiv": "ringe",
+    //     "presens": "ringer",
+    //     "preteritum": "ringte",
+    //     "perfektum": "ringt"
+    // },
+    // {
+    //     "infinitiv": "betale",
+    //     "presens": "betaler",
+    //     "preteritum": "betalte",
+    //     "perfektum": "betalt"
+    // },
+    // {
+    //     "infinitiv": "forstå",
+    //     "presens": "forstår",
+    //     "preteritum": "forsto",
+    //     "perfektum": "forstått"
+    // },
+    // {
+    //     "infinitiv": "glemme",
+    //     "presens": "glemmer",
+    //     "preteritum": "glemte",
+    //     "perfektum": "glemt"
+    // },
+    // {
+    //     "infinitiv": "hjelpe",
+    //     "presens": "hjelper",
+    //     "preteritum": "hjalp",
+    //     "perfektum": "hjulpet"
+    // },
+    // {
+    //     "infinitiv": "fortelle",
+    //     "presens": "forteller",
+    //     "preteritum": "fortalte",
+    //     "perfektum": "fortalt"
+    // },
+    // {
+    //     "infinitiv": "vente",
+    //     "presens": "venter",
+    //     "preteritum": "ventet",
+    //     "perfektum": "ventet"
+    // },
+    // {
+    //     "infinitiv": "reise",
+    //     "presens": "reiser",
+    //     "preteritum": "reiste",
+    //     "perfektum": "reist"
+    // },
+    // {
+    //     "infinitiv": "prøve",
+    //     "presens": "prøver",
+    //     "preteritum": "prøvde",
+    //     "perfektum": "prøvd"
+    // },
+    // {
+    //     "infinitiv": "møte",
+    //     "presens": "møter",
+    //     "preteritum": "møtte",
+    //     "perfektum": "møtt"
+    // },
+    // {
+    //     "infinitiv": "arbeide",
+    //     "presens": "arbeider",
+    //     "preteritum": "arbeidet",
+    //     "perfektum": "arbeidet"
+    // },
+    // {
+    //     "infinitiv": "låne",
+    //     "presens": "låner",
+    //     "preteritum": "lånte",
+    //     "perfektum": "lånt"
+    // },
+    // {
+    //     "infinitiv": "selge",
+    //     "presens": "selger",
+    //     "preteritum": "solgte",
+    //     "perfektum": "solgt"
+    // },
+    // {
+    //     "infinitiv": "spille",
+    //     "presens": "spiller",
+    //     "preteritum": "spilte",
+    //     "perfektum": "spilt"
+    // },
+    // {
+    //     "infinitiv": "vite",
+    //     "presens": "vet",
+    //     "preteritum": "visste",
+    //     "perfektum": "visst"
+    // },
+    // {
+    //     "infinitiv": "bære",
+    //     "presens": "bærer",
+    //     "preteritum": "bar",
+    //     "perfektum": "båret"
+    // },
+    // {
+    //     "infinitiv": "kjøpe",
+    //     "presens": "kjøper",
+    //     "preteritum": "kjøpte",
+    //     "perfektum": "kjøpt"
+    // },
+    // {
+    //     "infinitiv": "bygge",
+    //     "presens": "bygger",
+    //     "preteritum": "bygget",
+    //     "perfektum": "bygget"
+    // },
+    // {
+    //     "infinitiv": "danse",
+    //     "presens": "danser",
+    //     "preteritum": "danset",
+    //     "perfektum": "danset"
+    // },
+    // {
+    //     "infinitiv": "tegne",
+    //     "presens": "tegner",
+    //     "preteritum": "tegnet",
+    //     "perfektum": "tegnet"
+    // },
+    // {
+    //     "infinitiv": "hoppe",
+    //     "presens": "hopper",
+    //     "preteritum": "hoppet",
+    //     "perfektum": "hoppet"
+    // },
+    // {
+    //     "infinitiv": "flytte",
+    //     "presens": "flytter",
+    //     "preteritum": "flyttet",
+    //     "perfektum": "flyttet"
+    // },
+    // {
+    //     "infinitiv": "studere",
+    //     "presens": "studerer",
+    //     "preteritum": "studerte",
+    //     "perfektum": "studert"
+    // },
+    // {
+    //     "infinitiv": "våkne",
+    //     "presens": "våkner",
+    //     "preteritum": "våknet",
+    //     "perfektum": "våknet"
+    // },
+    // {
+    //     "infinitiv": "bestille",
+    //     "presens": "bestiller",
+    //     "preteritum": "bestilte",
+    //     "perfektum": "bestilt"
+    // },
+    // {
+    //     "infinitiv": "planlegge",
+    //     "presens": "planlegger",
+    //     "preteritum": "planla",
+    //     "perfektum": "planlagt"
+    // },
+    // {
+    //     "infinitiv": "gråte",
+    //     "presens": "gråter",
+    //     "preteritum": "gråt",
+    //     "perfektum": "grått"
+    // },
+    // {
+    //     "infinitiv": "smile",
+    //     "presens": "smiler",
+    //     "preteritum": "smilte",
+    //     "perfektum": "smilt"
+    // },
+    // {
+    //     "infinitiv": "le",
+    //     "presens": "ler",
+    //     "preteritum": "lo",
+    //     "perfektum": "ledd"
+    // },
+    // {
+    //     "infinitiv": "klippe",
+    //     "presens": "klipper",
+    //     "preteritum": "klippet",
+    //     "perfektum": "klippet"
+    // },
+    // {
+    //     "infinitiv": "skynde",
+    //     "presens": "skynder",
+    //     "preteritum": "skyndte",
+    //     "perfektum": "skyndt"
+    // },
+    // {
+    //     "infinitiv": "bruke",
+    //     "presens": "bruker",
+    //     "preteritum": "brukte",
+    //     "perfektum": "brukt"
+    // },
+    // {
+    //     "infinitiv": "låse",
+    //     "presens": "låser",
+    //     "preteritum": "låste",
+    //     "perfektum": "låst"
+    // },
+    // {
+    //     "infinitiv": "huske",
+    //     "presens": "husker",
+    //     "preteritum": "husket",
+    //     "perfektum": "husket"
+    // },
+    // {
+    //     "infinitiv": "besøke",
+    //     "presens": "besøker",
+    //     "preteritum": "besøkte",
+    //     "perfektum": "besøkt"
+    // }
+    
+        {
+            "infinitiv": "å forstå",
+            "presens": "forstår",
+            "preteritum": "forsto",
+            "perfektum": "har forstått"
+        },
+        {
+            "infinitiv": "å glemme",
+            "presens": "glemmer",
+            "preteritum": "glemte",
+            "perfektum": "har glemt"
+        },
+        {
+            "infinitiv": "å hjelpe",
+            "presens": "hjelper",
+            "preteritum": "hjalp",
+            "perfektum": "har hjulpet"
+        },
+        {
+            "infinitiv": "å fortelle",
+            "presens": "forteller",
+            "preteritum": "fortalte",
+            "perfektum": "har fortalt"
+        },
+        {
+            "infinitiv": "å vente",
+            "presens": "venter",
+            "preteritum": "ventet",
+            "perfektum": "har ventet"
+        },
+        {
+            "infinitiv": "å reise",
+            "presens": "reiser",
+            "preteritum": "reiste",
+            "perfektum": "har reist"
+        },
+        {
+            "infinitiv": "å prøve",
+            "presens": "prøver",
+            "preteritum": "prøvde",
+            "perfektum": "har prøvd"
+        },
+        {
+            "infinitiv": "å møte",
+            "presens": "møter",
+            "preteritum": "møtte",
+            "perfektum": "har møtt"
+        },
+        {
+            "infinitiv": "å arbeide",
+            "presens": "arbeider",
+            "preteritum": "arbeidet",
+            "perfektum": "har arbeidet"
+        },
+        {
+            "infinitiv": "å låne",
+            "presens": "låner",
+            "preteritum": "lånte",
+            "perfektum": "har lånt"
+        },
+        {
+            "infinitiv": "å selge",
+            "presens": "selger",
+            "preteritum": "solgte",
+            "perfektum": "har solgt"
+        },
+        {
+            "infinitiv": "å spille",
+            "presens": "spiller",
+            "preteritum": "spilte",
+            "perfektum": "har spilt"
+        },
+        {
+            "infinitiv": "å vite",
+            "presens": "vet",
+            "preteritum": "visste",
+            "perfektum": "har visst"
+        },
+        {
+            "infinitiv": "å bære",
+            "presens": "bærer",
+            "preteritum": "bar",
+            "perfektum": "har båret"
+        },
+        {
+            "infinitiv": "å kjøpe",
+            "presens": "kjøper",
+            "preteritum": "kjøpte",
+            "perfektum": "har kjøpt"
+        },
+        {
+            "infinitiv": "å bygge",
+            "presens": "bygger",
+            "preteritum": "bygget",
+            "perfektum": "har bygget"
+        },
+        {
+            "infinitiv": "å danse",
+            "presens": "danser",
+            "preteritum": "danset",
+            "perfektum": "har danset"
+        },
+        {
+            "infinitiv": "å tegne",
+            "presens": "tegner",
+            "preteritum": "tegnet",
+            "perfektum": "har tegnet"
+        },
+        {
+            "infinitiv": "å hoppe",
+            "presens": "hopper",
+            "preteritum": "hoppet",
+            "perfektum": "har hoppet"
+        },
+        {
+            "infinitiv": "å flytte",
+            "presens": "flytter",
+            "preteritum": "flyttet",
+            "perfektum": "har flyttet"
+        },
+        {
+            "infinitiv": "å studere",
+            "presens": "studerer",
+            "preteritum": "studerte",
+            "perfektum": "har studert"
+        },
+        {
+            "infinitiv": "å våkne",
+            "presens": "våkner",
+            "preteritum": "våknet",
+            "perfektum": "har våknet"
+        },
+        {
+            "infinitiv": "å bestille",
+            "presens": "bestiller",
+            "preteritum": "bestilte",
+            "perfektum": "har bestilt"
+        },
+        {
+            "infinitiv": "å planlegge",
+            "presens": "planlegger",
+            "preteritum": "planla",
+            "perfektum": "har planlagt"
+        },
+        {
+            "infinitiv": "å gråte",
+            "presens": "gråter",
+            "preteritum": "gråt",
+            "perfektum": "har grått"
+        },
+        {
+            "infinitiv": "å smile",
+            "presens": "smiler",
+            "preteritum": "smilte",
+            "perfektum": "har smilt"
+        },
+        {
+            "infinitiv": "å le",
+            "presens": "ler",
+            "preteritum": "lo",
+            "perfektum": "har ledd"
+        },
+        {
+            "infinitiv": "å klippe",
+            "presens": "klipper",
+            "preteritum": "klippet",
+            "perfektum": "har klippet"
+        },
+        {
+            "infinitiv": "å skynde",
+            "presens": "skynder",
+            "preteritum": "skyndte",
+            "perfektum": "har skyndt"
+        },
+        {
+            "infinitiv": "å bruke",
+            "presens": "bruker",
+            "preteritum": "brukte",
+            "perfektum": "har brukt"
+        },
+        {
+            "infinitiv": "å låse",
+            "presens": "låser",
+            "preteritum": "låste",
+            "perfektum": "har låst"
+        },
+        {
+            "infinitiv": "å huske",
+            "presens": "husker",
+            "preteritum": "husket",
+            "perfektum": "har husket"
+        },
+        {
+            "infinitiv": "å besøke",
+            "presens": "besøker",
+            "preteritum": "besøkte",
+            "perfektum": "har besøkt"
+        }
+
+    ];
 
 
 // Функция для случайного выбора элемента из массива
