@@ -4,6 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Норвежские глаголы</title>
+    <style>
+      body {
+        font-size: 18px; /* Увеличенный шрифт для всего текста */
+        text-align: center; /* Центрирование текста */
+        background-color: #f0f8ff; /* Светлый фон */
+        color: #333; /* Темный текст */
+      }
+      h1 {
+        color: #2c3e50; /* Темный цвет заголовка */
+      }
+      #question {
+        font-size: 24px; /* Увеличенный шрифт для вопроса */
+      }
+      input[type="text"] {
+        font-size: 18px; /* Увеличенный шрифт для окна ввода */
+        width: 80%; /* Увеличенная ширина окна ввода */
+        height: 40px; /* Увеличенная высота окна ввода */
+        margin: 10px 0; /* Отступы сверху и снизу */
+        padding: 10px; /* Внутренние отступы */
+        box-sizing: border-box; /* Учитывать padding и border в ширине и высоте */
+        border: 2px solid #2c3e50; /* Темная рамка */
+        border-radius: 5px; /* Скругленные углы */
+      }
+      button {
+        font-size: 18px; /* Увеличенный шрифт для кнопок */
+        margin: 10px; /* Отступы вокруг кнопок */
+        padding: 10px 20px; /* Внутренние отступы */
+        background-color: #3498db; /* Синий фон кнопок */
+        color: #fff; /* Белый текст на кнопках */
+        border: none; /* Убрать рамку */
+        border-radius: 5px; /* Скругленные углы */
+        cursor: pointer; /* Курсор указателя */
+      }
+      button:hover {
+        background-color: #2980b9; /* Темный синий фон при наведении */
+      }
+      @media (max-width: 600px) {
+        body {
+          font-size: 16px; /* Уменьшенный шрифт для мобильных устройств */
+        }
+        input[type="text"] {
+          font-size: 16px; /* Уменьшенный шрифт для окна ввода на мобильных устройствах */
+          height: 35px; /* Уменьшенная высота окна ввода на мобильных устройствах */
+        }
+        button {
+          font-size: 16px; /* Уменьшенный шрифт для кнопок на мобильных устройствах */
+        }
+      }
+    </style>
   </head>
   <body>
     <h1>Тренажер по норвежским глаголам</h1>
@@ -11,6 +60,7 @@
     <div id="quizContainer" style="display: none">
       <p id="question"></p>
       <input type="text" id="answer" />
+      <br />
       <button id="submitAnswer">Ответить</button>
       <p id="feedback"></p>
     </div>

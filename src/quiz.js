@@ -534,9 +534,13 @@ function startQuiz() {
       const userAnswer = answerInput.value;
       if (userAnswer && userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
         feedbackElement.textContent = "Правильно!";
+        feedbackElement.style.color = "green";
+        feedbackElement.style.animation = "none";
         score++;
       } else {
         feedbackElement.textContent = `Неправильно. Правильный ответ: ${correctAnswer}.`;
+        feedbackElement.style.color = "red";
+        feedbackElement.style.animation = "blink 1s step-end infinite";
       }
       currentRound++;
       if (currentRound < rounds) {
@@ -552,3 +556,13 @@ function startQuiz() {
 }
 
 document.getElementById("startQuiz").onclick = startQuiz;
+
+// Добавляем CSS для мигания текста
+const style = document.createElement('style');
+style.innerHTML = `
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+`;
+document.head.appendChild(style);
+
