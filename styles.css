@@ -19,6 +19,14 @@ h1 {
     /* Увеличенный шрифт для вопроса */
 }
 
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* Отступ между полем ввода и кнопкой */
+}
+
 input[type="text"] {
     font-size: 18px;
     /* Увеличенный шрифт для окна ввода */
@@ -26,8 +34,6 @@ input[type="text"] {
     /* Увеличенная ширина окна ввода */
     height: 40px;
     /* Увеличенная высота окна ввода */
-    margin: 10px 0;
-    /* Отступы сверху и снизу */
     padding: 10px;
     /* Внутренние отступы */
     box-sizing: border-box;
@@ -41,8 +47,6 @@ input[type="text"] {
 button {
     font-size: 18px;
     /* Увеличенный шрифт для кнопок */
-    margin: 10px;
-    /* Отступы вокруг кнопок */
     padding: 10px 20px;
     /* Внутренние отступы */
     background-color: #3498db;
@@ -78,5 +82,11 @@ button:hover {
     button {
         font-size: 16px;
         /* Уменьшенный шрифт для кнопок на мобильных устройствах */
+    }
+}
+
+@keyframes blink {
+    90% {
+        opacity: 0;
     }
 }

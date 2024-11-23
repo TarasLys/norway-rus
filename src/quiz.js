@@ -469,37 +469,8 @@ const verbs = [
         "perfektum": "besøkt"
     }
 
-//   { infinitiv: "være", presens: "er", preteritum: "var", perfektum: "vært" },
-//   { infinitiv: "ha", presens: "har", preteritum: "hadde", perfektum: "hatt" },
-//   { infinitiv: "gjøre", presens: "gjør", preteritum: "gjorde", perfektum: "gjort" },
-//   { infinitiv: "si", presens: "sier", preteritum: "sa", perfektum: "sagt" },
-//   { infinitiv: "få", presens: "får", preteritum: "fikk", perfektum: "fått" },
-//   { infinitiv: "komme", presens: "kommer", preteritum: "kom", perfektum: "kommet" },
-//   { infinitiv: "gå", presens: "går", preteritum: "gikk", perfektum: "gått" },
-//   { infinitiv: "se", presens: "ser", preteritum: "så", perfektum: "sett" },
-//   { infinitiv: "ta", presens: "tar", preteritum: "tok", perfektum: "tatt" },
-//   { infinitiv: "like", presens: "liker", preteritum: "likte", perfektum: "likt" },
-//   { infinitiv: "kunne", presens: "kan", preteritum: "kunne", perfektum: "kunnet" },
-//   { infinitiv: "ville", presens: "vil", preteritum: "ville", perfektum: "villet" },
-//   { infinitiv: "måtte", presens: "må", preteritum: "måtte", perfektum: "måttet" },
-//   { infinitiv: "skulle", presens: "skal", preteritum: "skulle", perfektum: "skullet" },
-//   { infinitiv: "bli", presens: "blir", preteritum: "ble", perfektum: "blitt" },
-//   { infinitiv: "spise", presens: "spiser", preteritum: "spiste", perfektum: "spist" },
-//   { infinitiv: "drikke", presens: "drikker", preteritum: "drakk", perfektum: "drukket" },
-//   { infinitiv: "lese", presens: "leser", preteritum: "leste", perfektum: "lest" },
-//   { infinitiv: "skrive", presens: "skriver", preteritum: "skrev", perfektum: "skrevet" },
-//   { infinitiv: "bo", presens: "bor", preteritum: "bodde", perfektum: "bodd" },
-//   { infinitiv: "snakke", presens: "snakker", preteritum: "snakket", perfektum: "snakket" },
-//   { infinitiv: "jobbe", presens: "jobber", preteritum: "jobbet", perfektum: "jobbet" },
-//   { infinitiv: "høre", presens: "hører", preteritum: "hørte", perfektum: "hørt" },
-//   { infinitiv: "kjøpe", presens: "kjøper", preteritum: "kjøpte", perfektum: "kjøpt" },
-//   { infinitiv: "leve", presens: "lever", preteritum: "levde", perfektum: "levd" },
-//   { infinitiv: "tenke", presens: "tenker", preteritum: "tenkte", perfektum: "tenkt" },
-//   { infinitiv: "betale", presens: "betaler", preteritum: "betalte", perfektum: "betalt" },
-//   { infinitiv: "velge", presens: "velger", preteritum: "valgte", perfektum: "valgt" },
-//   { infinitiv: "kjenne", presens: "kjenner", preteritum: "kjente", perfektum: "kjent" },
-//   { infinitiv: "sove", presens: "sover", preteritum: "sov", perfektum: "sovet" },
 ];
+
 
 // Функция для случайного выбора элемента из массива
 function getRandomElement(arr) {
@@ -512,12 +483,14 @@ function startQuiz() {
   const rounds = 10; // Количество раундов
   let currentRound = 0;
 
+  const startButton = document.getElementById("startQuiz");
   const quizContainer = document.getElementById("quizContainer");
   const questionElement = document.getElementById("question");
   const answerInput = document.getElementById("answer");
   const feedbackElement = document.getElementById("feedback");
   const scoreElement = document.getElementById("score");
 
+  startButton.style.display = "none"; // Скрыть кнопку "Начать викторину"
   quizContainer.style.display = "block";
 
   function askQuestion() {
@@ -548,6 +521,8 @@ function startQuiz() {
       } else {
         quizContainer.style.display = "none";
         scoreElement.textContent = `Игра окончена! Твой счет: ${score}/${rounds}.`;
+        startButton.style.display = "block"; // Показать кнопку "Начать викторину" после окончания игры
+        startButton.style.marginTop = "20px"; // Добавить отступ сверху для центрирования
       }
     };
   }
@@ -556,13 +531,3 @@ function startQuiz() {
 }
 
 document.getElementById("startQuiz").onclick = startQuiz;
-
-// Добавляем CSS для мигания текста
-const style = document.createElement('style');
-style.innerHTML = `
-  @keyframes blink {
-    90% { opacity: 0; }
-  }
-`;
-document.head.appendChild(style);
-
