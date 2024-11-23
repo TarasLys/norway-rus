@@ -561,7 +561,7 @@ document.getElementById("startQuiz").onclick = startQuiz;
 const style = document.createElement('style');
 style.innerHTML = `
   @keyframes blink {
-    50% { opacity: 0; }
+    90% { opacity: 0; }
   }
 `;
 document.head.appendChild(style);
