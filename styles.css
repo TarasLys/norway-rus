@@ -34,8 +34,8 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(255, 255, 255, 0.5);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), -1px -1px 2px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 3px 3px 7px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.6);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3), -2px -2px 3px rgba(255, 255, 255, 0.3);
 }
 
 button:hover {
@@ -54,46 +54,14 @@ button:hover {
 
     button {
         font-size: 16px;
+        box-shadow: inset 3px 3px 7px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.6);
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3), -2px -2px 3px rgba(255, 255, 255, 0.3);
     }
 }
 
 @keyframes blink {
     90% {
         opacity: 0;
-    }
-}
-
-h2 {
-    color: #2c3e50;
-}
-
-.glass-button {
-    font-size: 18px;
-    padding: 10px 20px;
-    background: rgba(0, 0, 255, 0.3);
-    color: #fff;
-    border: 2px solid rgba(0, 0, 255, 0.6);
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background 0.5s, box-shadow 0.5s;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 255, 0.4), 0 6px 20px rgba(0, 0, 255, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(255, 255, 255, 0.5);
-    margin: 10px 0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), -1px -1px 2px rgba(255, 255, 255, 0.2);
-}
-
-.glass-button:hover {
-    background: rgba(0, 0, 255, 0.4);
-    box-shadow: 0 4px 12px rgba(0, 0, 255, 0.5), 0 6px 20px rgba(0, 0, 255, 0.4), inset 2px 2px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(255, 255, 255, 0.5);
-}
-
-@media (max-width: 600px) {
-    body {
-        font-size: 16px;
-    }
-
-    .glass-button {
-        font-size: 16px;
     }
 }
 
@@ -105,15 +73,16 @@ h2 {
     border-radius: 15px;
     transition: color 0.5s, box-shadow 0.5s;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 255, 0.4), 0 6px 20px rgba(0, 0, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 255, 0.4), 0 6px 20px rgba(0, 0, 255, 0.3), 3px 3px 7px rgba(0, 0, 0, 0.4), -3px -3px 7px rgba(255, 255, 255, 0.6);
     margin: 10px 0;
     text-decoration: none;
     background: rgba(255, 255, 255, 0.3);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3), -2px -2px 3px rgba(255, 255, 255, 0.3);
 }
 
 h2:hover {
     color: rgba(0, 0, 255, 0.4);
-    box-shadow: 0 4px 12px rgba(0, 0, 255, 0.5), 0 6px 20px rgba(0, 0, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 255, 0.5), 0 6px 20px rgba(0, 0, 255, 0.4), 3px 3px 7px rgba(0, 0, 0, 0.4), -3px -3px 7px rgba(255, 255, 255, 0.6);
 }
 
 .glass-button {
@@ -125,15 +94,15 @@ h2:hover {
     cursor: pointer;
     transition: color 0.5s, box-shadow 0.5s;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 255, 0.4), 0 6px 20px rgba(0, 0, 255, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 255, 0.4), 0 6px 20px rgba(0, 0, 255, 0.3), inset 3px 3px 7px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.6);
     margin: 10px 0;
     background: rgba(0, 0, 255, 0.3);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), -1px -1px 2px rgba(255, 255, 255, 0.2);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3), -2px -2px 3px rgba(255, 255, 255, 0.3);
 }
 
 .glass-button:hover {
     color: rgba(0, 0, 255, 0.4);
-    box-shadow: 0 4px 12px rgba(0, 0, 255, 0.5), 0 6px 20px rgba(0, 0, 255, 0.4), inset 2px 2px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 255, 0.5), 0 6px 20px rgba(0, 0, 255, 0.4), inset 3px 3px 7px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.6);
 }
 
 @media (max-width: 600px) {
@@ -145,7 +114,8 @@ h2:hover {
     .glass-button {
         font-size: 16px;
     }
-}/* body {
+}
+/* body {
     font-size: 18px;
     text-align: center;
     background-color: #f0f8ff;
