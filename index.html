@@ -29,19 +29,19 @@
       </button>
     </div>
     <div>
-      <button class="glass-button" onclick="closeWindow()">
+      <button class="glass-button" onclick="redirectToGoogle()">
         Avslutt programmet
       </button>
     </div>
     <script src="./src/quiz.js"></script>
     <script>
-      function closeWindow() {
-        var newWindow = window.open("", "_self");
-        newWindow.close();
+      function redirectToGoogle() {
+        window.location.href = "https://www.google.com";
       }
     </script>
   </body>
 </html>
+
 <!-- <!DOCTYPE html>
 <html lang="no">
   <head>
@@ -80,41 +80,6 @@
     <script src="./src/quiz.js"></script>
     <script>
       function closeWindow() {
-        var newWindow = window.open("", "_self");
-        newWindow.close();
-      }
-    </script>
-  </body>
-</html> -->
-
-<!-- <!DOCTYPE html>
-<html lang="no">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Norsk Trener</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <h2 style="text-decoration-line: underline">Trener for norsk språk</h2>
-    <div>
-      <button class="glass-button" onclick="location.href='verb.html'">
-        Trener for norske verb
-      </button>
-    </div>
-    <div>
-      <button class="glass-button" onclick="location.href='substantiv.html'">
-        Trener for norske substantiv
-      </button>
-    </div>
-    <div>
-      <button class="glass-button" onclick="openAndCloseWindow()">
-        Avslutt programmet
-      </button>
-    </div>
-    <script src="./src/quiz.js"></script>
-    <script>
-      function openAndCloseWindow() {
         var newWindow = window.open("", "_self");
         newWindow.close();
       }
