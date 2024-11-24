@@ -65,6 +65,7 @@ const adjectives = [
   { "han_hun": "fjern", "intetkjonn": "fjernt", "flertall": "fjerne" }
 ];
 
+
 // Функция для случайного выбора элемента из массива
 function getRandomElement(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -77,23 +78,22 @@ function startQuiz() {
   let currentRound = 0;
 
   const startButton = document.getElementById("startQuiz");
-  const startContainer = document.getElementById("startContainer");
   const quizContainer = document.getElementById("quizContainer");
   const questionElement = document.getElementById("question");
   const answerInput = document.getElementById("answer");
   const feedbackElement = document.getElementById("feedback");
   const scoreElement = document.getElementById("score");
 
-  startContainer.style.display = "none"; // Скрыть контейнер с кнопкой "Начать викторину"
+  startButton.style.display = "none"; // Скрыть кнопку "Start quiz"
   quizContainer.style.display = "block";
 
   function askQuestion() {
     const adjective = getRandomElement(adjectives);
-    const forms = ["han_hun", "intetkjonn", "flertall"];
+    const forms = ["positiv", "komparativ", "superlativ"];
     const randomForm = getRandomElement(forms);
     const correctAnswer = adjective[randomForm];
 
-    questionElement.textContent = `Hva er formen '${randomForm}' for adjektivet '${adjective["han_hun"]}':`;
+    questionElement.textContent = `Hva er formen '${randomForm}' for adjektivet '${adjective["positiv"]}':`;
     answerInput.value = "";
     answerInput.focus();
 
@@ -115,7 +115,7 @@ function startQuiz() {
       } else {
         quizContainer.style.display = "none";
         scoreElement.textContent = `Spillet er over! Din poengsum: ${score}/${rounds}.`;
-        startContainer.style.display = "flex"; // Показать контейнер с кнопкой "Начать викторину" после окончания игры
+        startButton.style.display = "block"; // Показать кнопку "Start quiz" после окончания игры
       }
     };
   }
@@ -124,6 +124,66 @@ function startQuiz() {
 }
 
 document.getElementById("startQuiz").onclick = startQuiz;
+
+
+// function getRandomElement(arr) {
+//   return arr[Math.floor(Math.random() * arr.length)];
+// }
+
+
+// function startQuiz() {
+//   let score = 0;
+//   const rounds = 10; 
+//   let currentRound = 0;
+
+//   const startButton = document.getElementById("startQuiz");
+//   const startContainer = document.getElementById("startContainer");
+//   const quizContainer = document.getElementById("quizContainer");
+//   const questionElement = document.getElementById("question");
+//   const answerInput = document.getElementById("answer");
+//   const feedbackElement = document.getElementById("feedback");
+//   const scoreElement = document.getElementById("score");
+
+//   startContainer.style.display = "none"; 
+//   quizContainer.style.display = "block";
+
+//   function askQuestion() {
+//     const adjective = getRandomElement(adjectives);
+//     const forms = ["han_hun", "intetkjonn", "flertall"];
+//     const randomForm = getRandomElement(forms);
+//     const correctAnswer = adjective[randomForm];
+
+//     questionElement.textContent = `Hva er formen '${randomForm}' for adjektivet '${adjective["han_hun"]}':`;
+//     answerInput.value = "";
+//     answerInput.focus();
+
+//     document.getElementById("submitAnswer").onclick = function() {
+//       const userAnswer = answerInput.value;
+//       if (userAnswer && userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+//         feedbackElement.textContent = "Riktig!";
+//         feedbackElement.style.color = "green";
+//         feedbackElement.style.animation = "none";
+//         score++;
+//       } else {
+//         feedbackElement.textContent = `Feil. Riktig svar: ${correctAnswer}.`;
+//         feedbackElement.style.color = "red";
+//         feedbackElement.style.animation = "blink 1s step-end infinite";
+//       }
+//       currentRound++;
+//       if (currentRound < rounds) {
+//         askQuestion();
+//       } else {
+//         quizContainer.style.display = "none";
+//         scoreElement.textContent = `Spillet er over! Din poengsum: ${score}/${rounds}.`;
+//         startContainer.style.display = "flex"; 
+//       }
+//     };
+//   }
+
+//   askQuestion();
+// }
+
+// document.getElementById("startQuiz").onclick = startQuiz;
 
 // const adjectives = [
 //   {
