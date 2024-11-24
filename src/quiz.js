@@ -473,15 +473,13 @@ const verbs = [
     ];
 
 
-// Функция для случайного выбора элемента из массива
 function getRandomElement(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// Функция для запуска викторины
 function startQuiz() {
   let score = 0;
-  const rounds = 10; // Количество раундов
+  const rounds = 10; 
   let currentRound = 0;
 
   const startButton = document.getElementById("startQuiz");
@@ -491,7 +489,7 @@ function startQuiz() {
   const feedbackElement = document.getElementById("feedback");
   const scoreElement = document.getElementById("score");
 
-  startButton.style.display = "none"; // Скрыть кнопку "Начать викторину"
+  startButton.style.display = "none"; 
   quizContainer.style.display = "block";
 
   function askQuestion() {
@@ -500,19 +498,19 @@ function startQuiz() {
     const randomForm = getRandomElement(forms);
     const correctAnswer = verb[randomForm];
 
-    questionElement.textContent = `Назови форму '${randomForm}' для глагола '${verb.infinitiv}':`;
+    questionElement.textContent = `Hva er formen '${randomForm}' for verbet '${verb.infinitiv}':`;
     answerInput.value = "";
     answerInput.focus();
 
     document.getElementById("submitAnswer").onclick = function() {
       const userAnswer = answerInput.value;
       if (userAnswer && userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-        feedbackElement.textContent = "Правильно!";
+        feedbackElement.textContent = "Riktig!";
         feedbackElement.style.color = "green";
         feedbackElement.style.animation = "none";
         score++;
       } else {
-        feedbackElement.textContent = `Неправильно. Правильный ответ: ${correctAnswer}.`;
+        feedbackElement.textContent = `Feil. Riktig svar: ${correctAnswer}.`;
         feedbackElement.style.color = "red";
         feedbackElement.style.animation = "blink 1s step-end infinite";
       }
@@ -521,9 +519,9 @@ function startQuiz() {
         askQuestion();
       } else {
         quizContainer.style.display = "none";
-        scoreElement.textContent = `Игра окончена! Твой счет: ${score}/${rounds}.`;
-        startButton.style.display = "block"; // Показать кнопку "Начать викторину" после окончания игры
-        startButton.style.marginTop = "20px"; // Добавить отступ сверху для центрирования
+        scoreElement.textContent = `Spillet er over! Din poengsum: ${score}/${rounds}.`;
+        startButton.style.display = "block"; 
+        startButton.style.marginTop = "20px"; 
       }
     };
   }
@@ -532,3 +530,65 @@ function startQuiz() {
 }
 
 document.getElementById("startQuiz").onclick = startQuiz;
+
+
+
+
+// function getRandomElement(arr) {
+//   return arr[Math.floor(Math.random() * arr.length)];
+// }
+
+
+// function startQuiz() {
+//   let score = 0;
+//   const rounds = 10; 
+//   let currentRound = 0;
+
+//   const startButton = document.getElementById("startQuiz");
+//   const quizContainer = document.getElementById("quizContainer");
+//   const questionElement = document.getElementById("question");
+//   const answerInput = document.getElementById("answer");
+//   const feedbackElement = document.getElementById("feedback");
+//   const scoreElement = document.getElementById("score");
+
+//   startButton.style.display = "none"; 
+//   quizContainer.style.display = "block";
+
+//   function askQuestion() {
+//     const verb = getRandomElement(verbs);
+//     const forms = ["infinitiv", "presens", "preteritum", "presens perfektum"];
+//     const randomForm = getRandomElement(forms);
+//     const correctAnswer = verb[randomForm];
+
+//     questionElement.textContent = `Назови форму '${randomForm}' для глагола '${verb.infinitiv}':`;
+//     answerInput.value = "";
+//     answerInput.focus();
+
+//     document.getElementById("submitAnswer").onclick = function() {
+//       const userAnswer = answerInput.value;
+//       if (userAnswer && userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+//         feedbackElement.textContent = "Правильно!";
+//         feedbackElement.style.color = "green";
+//         feedbackElement.style.animation = "none";
+//         score++;
+//       } else {
+//         feedbackElement.textContent = `Неправильно. Правильный ответ: ${correctAnswer}.`;
+//         feedbackElement.style.color = "red";
+//         feedbackElement.style.animation = "blink 1s step-end infinite";
+//       }
+//       currentRound++;
+//       if (currentRound < rounds) {
+//         askQuestion();
+//       } else {
+//         quizContainer.style.display = "none";
+//         scoreElement.textContent = `Игра окончена! Твой счет: ${score}/${rounds}.`;
+//         startButton.style.display = "block"; 
+//         startButton.style.marginTop = "20px"; 
+//       }
+//     };
+//   }
+
+//   askQuestion();
+// }
+
+// document.getElementById("startQuiz").onclick = startQuiz;

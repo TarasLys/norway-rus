@@ -1202,15 +1202,15 @@ const nouns = [
 ];
 
 
-// Funksjon for tilfeldig valg av element fra en liste
+
 function getRandomElement(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// Funksjon for å starte quiz
+
 function startQuiz() {
   let score = 0;
-  const rounds = 10; // Antall runder
+  const rounds = 10; 
   let currentRound = 0;
 
   const startButton = document.getElementById("startQuiz");
@@ -1221,7 +1221,7 @@ function startQuiz() {
   const feedbackElement = document.getElementById("feedback");
   const scoreElement = document.getElementById("score");
 
-  startContainer.style.display = "none"; // Skjul startknappen
+  startContainer.style.display = "none"; 
   quizContainer.style.display = "block";
 
   function askQuestion() {
@@ -1252,7 +1252,7 @@ function startQuiz() {
       } else {
         quizContainer.style.display = "none";
         scoreElement.textContent = `Spillet er over! Din poengsum: ${score}/${rounds}.`;
-        startContainer.style.display = "flex"; // Vis startknappen etter spillet
+        startContainer.style.display = "flex"; 
       }
     };
   }

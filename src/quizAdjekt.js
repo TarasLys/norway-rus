@@ -68,15 +68,15 @@ const adjectives = [
 
 
 
-// Функция для случайного выбора элемента из массива
+
 function getRandomElement(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// Функция для запуска викторины
+
 function startQuiz() {
   let score = 0;
-  const rounds = 10; // Количество раундов
+  const rounds = 10; 
   let currentRound = 0;
 
   const startButton = document.getElementById("startQuiz");
@@ -87,7 +87,7 @@ function startQuiz() {
   const feedbackElement = document.getElementById("feedback");
   const scoreElement = document.getElementById("score");
 
-  startButton.style.display = "none"; // Скрыть кнопку "Start quiz"
+  startButton.style.display = "none"; 
   quizContainer.style.display = "block";
 
   answerInput.addEventListener("input", function () {
@@ -123,7 +123,7 @@ function startQuiz() {
       } else {
         quizContainer.style.display = "none";
         scoreElement.textContent = `Spillet er over! Din poengsum: ${score}/${rounds}.`;
-        startButton.style.display = "block"; // Показать кнопку "Start quiz" после окончания игры
+        startButton.style.display = "block"; 
       }
     };
   }
