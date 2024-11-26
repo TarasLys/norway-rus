@@ -129,7 +129,8 @@ h2:hover {
     top: 10%;
     left: 50%;
     transform: translate(-50%, 0);
-    width: 33%;
+    width: 80%;
+    
     background: #fff;
     
     border: 1px solid #ccc;
@@ -157,26 +158,6 @@ h2:hover {
         
         top: 20%;
         left: 10%;
-        transform: none;
-    }
-}
-
-@media (min-width: 601px) and (max-width: 1024px) {
-    #hintContainer {
-        width: 70%;
-        
-        top: 15%;
-        left: 15%;
-        transform: none;
-    }
-}
-
-@media (min-width: 1025px) {
-    #hintContainer {
-        width: 50%;
-        
-        top: 10%;
-        left: 25%;
         transform: none;
     }
 }
