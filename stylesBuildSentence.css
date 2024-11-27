@@ -19,6 +19,13 @@ h2 {
     margin-bottom: 15px;
 }
 
+p {
+    margin: 5px 0;
+    
+    padding: 0;
+    
+}
+
 #russianSentenceContainer {
     margin-bottom: 5px;
     /* Уменьшаем отступ */
@@ -53,7 +60,7 @@ h2 {
     width: 90%;
     height: 2px;
     background-color: #000;
-    margin: 15px auto;
+    margin: 10px auto;
 }
 
 #wordsContainer {
