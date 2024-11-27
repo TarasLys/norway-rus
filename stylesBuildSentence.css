@@ -1,3 +1,4 @@
+
 body {
     font-size: 18px;
     text-align: center;
@@ -26,28 +27,28 @@ h2 {
 #sentenceContainer {
     display: flex;
     justify-content: space-between;
-    /* Размещаем элементы по краям */
+    
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
     width: 90%;
-    /* Уменьшаем ширину */
+    
     margin-left: 5%;
-    /* Отступаем на 5% от левого края */
+    
     height: 32px;
-    /* Устанавливаем фиксированную высоту */
+    
 }
 
 #sentence {
     flex-grow: 1;
-    /* Позволяем тексту занимать все доступное пространство */
+    
     text-align: left;
-    /* Выравниваем текст по левому краю */
+    
 }
 
 #removeLastWord {
     margin-left: auto;
-    /* Перемещаем кнопку вправо */
+    
 }
 
 .separator {
@@ -64,9 +65,9 @@ h2 {
     gap: 10px;
     margin-bottom: 20px;
     width: 90%;
-    /* Устанавливаем ширину контейнера */
+    
     margin: 0 auto;
-    /* Центрируем контейнер */
+    
 }
 
 .word {
@@ -108,7 +109,7 @@ h2 {
     margin-top: 20px;
     font-size: 18px;
     color: #ff0000;
-    /* Красный цвет для правильного ответа */
+    
 }
 
 .score-container {
@@ -116,9 +117,9 @@ h2 {
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    /* Устанавливаем ширину контейнера */
+    
     margin: 0 auto 20px;
-    /* Центрируем контейнер и добавляем отступ снизу */
+    
 }
 
 .score {
@@ -134,141 +135,11 @@ h2 {
 
 .correct {
     background-color: #28a745;
-    /* Зеленый фон для правильных ответов */
+    
 }
 
 .incorrect {
     background-color: #dc3545;
-    /* Красный фон для неправильных ответов */
-}
-
-@media (max-width: 600px) {
-    body {
-        font-size: 16px;
-    }
-
-    .word,
-    .glass-button {
-        font-size: 16px;
-        padding: 8px 16px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    #sentenceContainer {
-        width: 90%;
-        /* Увеличиваем ширину для мобильных устройств */
-        margin-left: 5%;
-        /* Корректируем отступ для мобильных устройств */
-    }
-}
-
-/* body {
-    font-size: 18px;
-    text-align: center;
-    background-color: #f0f8ff;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-#russianSentenceContainer {
-    margin-bottom: 20px;
-}
-
-#sentenceContainer {
-    display: flex;
-    justify-content: space-between;
-    
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    width: 90%;
-    
-    margin-left: 5%;
-    
-}
-
-#sentence {
-    flex-grow: 1;
-    
-    text-align: left;
-    
-}
-
-#removeLastWord {
-    margin-left: auto;
-    
-}
-
-.separator {
-    width: 90%;
-    height: 2px;
-    background-color: #000;
-    margin: 20px auto;
-}
-
-#wordsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.word {
-    font-size: 18px;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.word:hover {
-    background-color: #2980b9;
-}
-
-.glass-button {
-    font-size: 18px;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.glass-button:hover {
-    background-color: #2980b9;
-}
-
-#feedback {
-    margin-top: 20px;
-    font-size: 18px;
-}
-
-#correctAnswer {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #ff0000;
     
 }
 
@@ -293,325 +164,5 @@ h2 {
         margin-left: 5%;
         
     }
-} */
-/* body {
-    font-size: 18px;
-    text-align: center;
-    background-color: #f0f8ff;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-#russianSentenceContainer {
-    margin-bottom: 20px;
-}
-
-#sentenceContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.separator {
-    width: 90%;
-    height: 2px;
-    background-color: #000;
-    margin: 20px auto;
-}
-
-#wordsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.word {
-    font-size: 18px;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.word:hover {
-    background-color: #2980b9;
-}
-
-.glass-button {
-    font-size: 18px;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.glass-button:hover {
-    background-color: #2980b9;
-}
-
-#feedback {
-    margin-top: 20px;
-    font-size: 18px;
-}
-
-#correctAnswer {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #ff0000;
-    
-}
-
-@media (max-width: 600px) {
-    body {
-        font-size: 16px;
-    }
-
-    .word,
-    .glass-button {
-        font-size: 16px;
-        padding: 8px 16px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-} */
-
-/* body {
-    font-size: 18px;
-    text-align: center;
-    background-color: #f0f8ff;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-#russianSentenceContainer {
-    margin-bottom: 20px;
-}
-
-#sentenceContainer {
-    margin-bottom: 20px;
-}
-
-#wordsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.word {
-    font-size: 18px;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.word:hover {
-    background-color: #2980b9;
-}
-
-.glass-button {
-    font-size: 18px;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.glass-button:hover {
-    background-color: #2980b9;
-}
-
-#feedback {
-    margin-top: 20px;
-    font-size: 18px;
-}
-
-#correctAnswer {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #ff0000;
-    
-}
-
-@media (max-width: 600px) {
-    body {
-        font-size: 16px;
-    }
-
-    .word,
-    .glass-button {
-        font-size: 16px;
-        padding: 8px 16px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-} */
-
-
-
-
-/* body {
-    font-size: 18px;
-    text-align: center;
-    background-color: #f0f8ff;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-#russianSentenceContainer {
-    margin-bottom: 20px;
-}
-
-#sentenceContainer {
-    margin-bottom: 20px;
-}
-
-#wordsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.word {
-    font-size: 18px;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.word:hover {
-    background-color: #2980b9;
-}
-
-.glass-button {
-    font-size: 18px;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.glass-button:hover {
-    background-color: #2980b9;
-}
-
-#feedback {
-    margin-top: 20px;
-    font-size: 18px;
-}
-
-#correctAnswer {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #ff0000; */
-    
-/* }
-
-@media (max-width: 600px) {
-    body {
-        font-size: 16px;
-    }
-
-    .word,
-    .glass-button {
-        font-size: 16px;
-        padding: 8px 16px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-}
-
-.glass-button {
-    font-size: 18px;
-    padding: 10px 20px;
-    color: #fff;
-    border: 2px solid rgba(0, 0, 255, 0.6);
-    border-radius: 15px;
-    cursor: pointer;
-    transition: color 0.5s, box-shadow 0.5s;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 255, 0.4), 0 6px 20px rgba(0, 0, 255, 0.3), inset 3px 3px 7px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.6);
-    margin: 10px 0;
-    background: rgba(0, 0, 255, 0.3);
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3), -2px -2px 3px rgba(255, 255, 255, 0.3);
-}
-
-.glass-button:hover {
-    color: #fff;
-
-    background: rgba(0, 0, 139, 0.4);
-
-    box-shadow: 0 4px 12px rgba(0, 0, 139, 0.5), 0 6px 20px rgba(0, 0, 139, 0.4), inset 3px 3px 7px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.6);
-} */
