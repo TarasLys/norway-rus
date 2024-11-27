@@ -782,7 +782,7 @@ function displaySentence() {
     document.getElementById("englishSentence").textContent = currentSentence.english; // Добавляем английский вариант предложения
     document.getElementById("sentence").textContent = ""; // Очищаем поле для набранного предложения
     const words = currentSentence.norwegian.split(/(\s|,|\.|!|\?)/).filter(word => word.trim() !== ""); // Разделяем слова и знаки препинания, удаляем пробелы
-    const randomExtraWords = getRandomWords(extraWords, 17 - words.length);
+    const randomExtraWords = getRandomWords(extraWords, 16 - words.length);
     const allWords = shuffleArray([...words, ...randomExtraWords]);
     const wordsContainer = document.getElementById("wordsContainer");
     wordsContainer.innerHTML = "";
