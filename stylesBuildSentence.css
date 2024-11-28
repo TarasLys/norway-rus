@@ -21,19 +21,15 @@ h2 {
 
 p {
     margin: 5px 0;
-    
     padding: 0;
-    
 }
 
 #russianSentenceContainer {
     margin-bottom: 5px;
-    /* Уменьшаем отступ */
 }
 
 #englishSentence {
     margin-top: 0;
-    /* Убираем отступ */
 }
 
 #sentenceContainer {
@@ -45,6 +41,174 @@ p {
     width: 75%;
     margin-left: 12.5%;
     height: 32px;
+    position: relative;
+}
+
+#sentence {
+    flex-grow: 1;
+    text-align: left;
+    margin-right: 25px;
+    /* Добавляем отступ справа */
+}
+
+#removeLastWord {
+    position: absolute;
+    right: -10%;
+}
+
+.separator {
+    width: 90%;
+    height: 2px;
+    background-color: #000;
+    margin: 10px auto;
+}
+
+#wordsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.word {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.word:hover {
+    background-color: #2980b9;
+}
+
+.glass-button {
+    font-size: 18px;
+    padding: 8px 20px;
+    color: #fff;
+    border: 2px solid rgba(0, 0, 255, 0.6);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: color 0.5s, box-shadow 0.5s;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 255, 0.4), 0 6px 20px rgba(0, 0, 255, 0.3), inset 3px 3px 7px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.6);
+    margin: 5px 0;
+    background: rgba(0, 0, 255, 0.3);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3), -2px -2px 3px rgba(255, 255, 255, 0.3);
+}
+
+.glass-button:hover {
+    color: #fff;
+    background: rgba(0, 0, 139, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 139, 0.5), 0 6px 20px rgba(0, 0, 139, 0.4), inset 3px 3px 7px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.6);
+}
+
+.glass-button-help {
+    font-size: 18px;
+    padding: 6px 13px;
+    color: #fff;
+    border: 2px solid rgba(255, 0, 0, 0.6);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: color 0.5s, box-shadow 0.5s;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(255, 0, 0, 0.4), 0 6px 20px rgba(255, 0, 0, 0.3), inset 3px 3px 7px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.6);
+    margin: 5px 0;
+    background: rgba(255, 0, 0, 0.3);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3), -2px -2px 3px rgba(255, 255, 255, 0.3);
+}
+
+.glass-button-help:hover {
+    background-color: rgba(255, 0, 0, 0.4);
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.5), 0 6px 20px rgba(255, 0, 0, 0.4), inset 3px 3px 7px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.6);
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: -8px auto;
+    padding: 0 5%;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: #fff;
+    border: 2px solid rgba(0, 255, 0, 0.6);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 255, 0, 0.4), 0 6px 20px rgba(0, 255, 0, 0.3), inset 3px 3px 7px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.6);
+    margin: 5px 0;
+    background: rgba(0, 255, 0, 0.3);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3), -2px -2px 3px rgba(255, 255, 255, 0.3);
+}
+
+.correct {
+    background-color: rgba(0, 255, 0, 0.3);
+}
+
+.incorrect {
+    background-color: rgba(255, 0, 0, 0.3);
+    border: 2px solid rgba(255, 0, 0, 0.6);
+    box-shadow: 0 4px 6px rgba(255, 0, 0, 0.4), 0 6px 20px rgba(255, 0, 0, 0.3), inset 3px 3px 7px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.6);
+}
+
+/* body {
+    font-size: 18px;
+    text-align: center;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+p {
+    margin: 5px 0;
+    padding: 0;
+}
+
+#russianSentenceContainer {
+    margin-bottom: 5px;
+}
+
+#englishSentence {
+    margin-top: 0;
+}
+
+#sentenceContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    width: 75%;
+    margin-left: 12.5%;
+    height: 32px;
+    position: relative;
 }
 
 #sentence {
@@ -53,7 +217,8 @@ p {
 }
 
 #removeLastWord {
-    margin-left: auto;
+    position: absolute;
+    right: 0%;
 }
 
 .separator {
@@ -105,13 +270,11 @@ p {
 
 #feedback {
     margin-top: 5px;
-    /* Уменьшаем отступ */
     font-size: 18px;
 }
 
 #correctAnswer {
     margin-top: 0;
-    /* Убираем отступ */
     font-size: 18px;
     color: #ff0000;
 }
@@ -120,8 +283,9 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 75%;
+    width: 90%;
     margin: 0 auto 15px;
+    padding: 0 5%;
 }
 
 .score {
@@ -163,6 +327,8 @@ p {
         margin-left: 5%;
     }
 }
+
+
 
 .glass-button {
     font-size: 18px;
@@ -209,173 +375,5 @@ p {
     background-color: rgba(255, 0, 0, 0.4);
 
     box-shadow: 0 4px 12px rgba(255, 0, 0, 0.5), 0 6px 20px rgba(255, 0, 0, 0.4), inset 3px 3px 7px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.6);
-}
-
-/* 
-body {
-    font-size: 18px;
-    text-align: center;
-    background-color: #f0f8ff;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-#russianSentenceContainer {
-    margin-bottom: 20px;
-}
-
-#sentenceContainer {
-    display: flex;
-    justify-content: space-between;
-    
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    width: 90%;
-    
-    margin-left: 5%;
-    
-    height: 32px;
-    
-}
-
-#sentence {
-    flex-grow: 1;
-    
-    text-align: left;
-    
-}
-
-#removeLastWord {
-    margin-left: auto;
-    
-}
-
-.separator {
-    width: 90%;
-    height: 2px;
-    background-color: #000;
-    margin: 20px auto;
-}
-
-#wordsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    width: 90%;
-    
-    margin: 0 auto;
-    
-}
-
-.word {
-    font-size: 18px;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.word:hover {
-    background-color: #2980b9;
-}
-
-.glass-button {
-    font-size: 18px;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.glass-button:hover {
-    background-color: #2980b9;
-}
-
-#feedback {
-    margin-top: 20px;
-    font-size: 18px;
-}
-
-#correctAnswer {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #ff0000;
-    
-}
-
-.score-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    
-    margin: 0 auto 20px;
-    
-}
-
-.score {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 18px;
-    color: #fff;
-}
-
-.correct {
-    background-color: #28a745;
-    
-}
-
-.incorrect {
-    background-color: #dc3545;
-    
-}
-
-@media (max-width: 600px) {
-    body {
-        font-size: 16px;
-    }
-
-    .word,
-    .glass-button {
-        font-size: 16px;
-        padding: 8px 16px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    #sentenceContainer {
-        width: 90%;
-        
-        margin-left: 5%;
-        
-    }
 } */
 
