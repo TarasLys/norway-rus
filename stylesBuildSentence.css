@@ -124,7 +124,10 @@ p {
     background: rgba(255, 0, 0, 0.3);
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3), -2px -2px 3px rgba(255, 255, 255, 0.3);
     font-weight: bold;
-   
+    /* Делаем стрелку жирнее */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .glass-button-help:hover {
