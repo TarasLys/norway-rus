@@ -1,5 +1,5 @@
-const sentences = [
-      { "norwegian": "Hvis det regner blir vi hjemme.", "russian": "Если пойдет дождь, мы останемся дома.", "english": "If it rains, we will stay home." },
+export const sentences = [
+  { "norwegian": "Hvis det regner blir vi hjemme.", "russian": "Если пойдет дождь, мы останемся дома.", "english": "If it rains, we will stay home." },
   { "norwegian": "Han sa at han var trøtt.", "russian": "Он сказал, что устал.", "english": "He said that he was tired." },
   { "norwegian": "Vet du om butikken er åpen?", "russian": "Ты знаешь, открыт ли магазин?", "english": "Do you know if the shop is open?" },
   { "norwegian": "Jenta som løp i parken er søsteren min.", "russian": "Девочка, которая бегала в парке, моя сестра.", "english": "The girl who was running in the park is my sister." },
@@ -212,101 +212,4 @@ const sentences = [
 
 ];
 
-const extraWords = ["og", "men", "eller", "fordi", "hvis", "når", "hvorfor", "hvordan", "hva", "hvem", "derfor", "som", "at", "om", "så", "men", "eller", "fordi", "hvis", "når", "hvorfor", "hvordan", "hva", "hvem", "derfor", "som", "at", "om", "så"];
-
-let currentSentence = {};
-let selectedWords = [];
-let correctCount = 0;
-let incorrectCount = 0;
-
-function getRandomSentence() {
-    return sentences[Math.floor(Math.random() * sentences.length)];
-}
-
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
-function getRandomWords(words, count) {
-    const shuffledWords = shuffleArray([...words]);
-    return shuffledWords.slice(0, count);
-}
-
-function displaySentence() {
-    currentSentence = getRandomSentence();
-    document.getElementById("russianSentence").textContent = currentSentence.russian;
-    document.getElementById("englishSentence").textContent = currentSentence.english; // Добавляем английский вариант предложения
-    document.getElementById("sentence").textContent = ""; // Очищаем поле для набранного предложения
-    const words = currentSentence.norwegian.split(/(\s|,|\.|!|\?)/).filter(word => word.trim() !== ""); // Разделяем слова и знаки препинания, удаляем пробелы
-    const randomExtraWords = getRandomWords(extraWords, 16 - words.length);
-    const allWords = shuffleArray([...words, ...randomExtraWords]);
-    const wordsContainer = document.getElementById("wordsContainer");
-    wordsContainer.innerHTML = "";
-    allWords.forEach(word => {
-        const wordElement = document.createElement("button");
-        wordElement.textContent = word;
-        wordElement.classList.add("word");
-        wordElement.onclick = () => selectWord(word, wordElement);
-        wordsContainer.appendChild(wordElement);
-    });
-}
-
-function selectWord(word, wordElement) {
-    selectedWords.push(word);
-    wordElement.style.display = "none"; // Убираем выбранное слово из списка
-    const selectedSentence = selectedWords.join(" ").replace(/\s*([,\.!?])\s*/g, "$1 "); // Удаляем пробелы вокруг знаков препинания
-    document.getElementById("sentence").textContent = selectedSentence;
-    document.getElementById("feedback").textContent = ""; // Очищаем поле обратной связи
-    document.getElementById("correctAnswer").textContent = ""; // Очищаем поле правильного ответа
-    document.getElementById("userAnswer").textContent = ""; // Очищаем поле неправильного ответа пользователя
-}
-
-function removeLastWord() {
-    if (selectedWords.length > 0) {
-        const lastWord = selectedWords.pop();
-        const wordsContainer = document.getElementById("wordsContainer");
-        const wordElement = document.createElement("button");
-        wordElement.textContent = lastWord;
-        wordElement.classList.add("word");
-        wordElement.onclick = () => selectWord(lastWord, wordElement);
-        wordsContainer.appendChild(wordElement);
-        const selectedSentence = selectedWords.join(" ").replace(/\s*([,\.!?])\s*/g, "$1 "); // Удаляем пробелы вокруг знаков препинания
-        document.getElementById("sentence").textContent = selectedSentence;
-    }
-}
-
-function normalizeSentence(sentence) {
-    return sentence.replace(/\s*([,\.!?])\s*/g, "$1").trim(); // Удаляем пробелы вокруг знаков препинания и обрезаем пробелы в начале и конце
-}
-
-function checkAnswer() {
-    const selectedSentence = normalizeSentence(selectedWords.join(" ")); // Нормализуем выбранное предложение
-    const correctSentence = normalizeSentence(currentSentence.norwegian); // Нормализуем правильное предложение
-    if (selectedSentence === correctSentence) {
-        document.getElementById("feedback").textContent = "Riktig!";
-        document.getElementById("feedback").style.color = "green";
-        document.getElementById("correctAnswer").textContent = ""; // Очищаем поле правильного ответа
-        document.getElementById("userAnswer").textContent = ""; // Очищаем поле неправильного ответа пользователя
-        correctCount++;
-        document.getElementById("correctCount").textContent = correctCount;
-    } else {
-        document.getElementById("feedback").textContent = "Feil. Prøv igjen.";
-        document.getElementById("feedback").style.color = "red";
-        document.getElementById("correctAnswer").textContent = `Riktig svar: ${currentSentence.norwegian}`; // Отображаем правильный ответ
-        document.getElementById("userAnswer").textContent = `Din svar: ${selectedSentence}`; // Отображаем неправильный ответ пользователя
-        incorrectCount++;
-        document.getElementById("incorrectCount").textContent = incorrectCount;
-    }
-    selectedWords = [];
-    displaySentence();
-}
-
-document.getElementById("checkAnswer").onclick = checkAnswer;
-document.getElementById("removeLastWord").onclick = removeLastWord;
-
-window.onload = displaySentence;
 
