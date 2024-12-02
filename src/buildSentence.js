@@ -217,11 +217,7 @@ let currentSentence = {};
 let selectedWords = [];
 let correctCount = 0;
 let incorrectCount = 0;
-
-
-
-
-
+let recognition;
 
 function getRandomSentence() {
   return sentences[Math.floor(Math.random() * sentences.length)];
@@ -318,25 +314,27 @@ function speak(text) {
 }
 
 function startVoiceInput() {
-  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-  recognition.lang = "nb-NO"; // Устанавливаем язык на норвежский букмол
-  recognition.interimResults = false;
-  recognition.maxAlternatives = 1;
+  if (!recognition) {
+    recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = "nb-NO"; // Устанавливаем язык на норвежский букмол
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
 
-  recognition.onresult = function(event) {
-    const transcript = event.results[0][0].transcript;
-    const words = transcript.split(/\s+/);
-    selectedWords = words;
-    const selectedSentence = selectedWords.join(" ").replace(/\s*([,\.!?])\s*/g, "$1 ");
-    document.getElementById("sentence").textContent = selectedSentence;
-    document.getElementById("feedback").textContent = "";
-    document.getElementById("correctAnswer").textContent = "";
-    document.getElementById("userAnswer").textContent = "";
-  };
+    recognition.onresult = function(event) {
+      const transcript = event.results[0][0].transcript;
+      const words = transcript.split(/\s+/);
+      selectedWords = words;
+      const selectedSentence = selectedWords.join(" ").replace(/\s*([,\.!?])\s*/g, "$1 ");
+      document.getElementById("sentence").textContent = selectedSentence;
+      document.getElementById("feedback").textContent = "";
+      document.getElementById("correctAnswer").textContent = "";
+      document.getElementById("userAnswer").textContent = "";
+    };
 
-  recognition.onerror = function(event) {
-    console.error("Ошибка распознавания речи: ", event.error);
-  };
+    recognition.onerror = function(event) {
+      console.error("Ошибка распознавания речи: ", event.error);
+    };
+  }
 
   recognition.start();
 }
@@ -347,6 +345,8 @@ window.onload = function() {
   document.getElementById("removeLastWord").onclick = removeLastWord;
   document.getElementById("startVoiceInput").onclick = startVoiceInput;
 };
+
+
 
 
 
