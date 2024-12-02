@@ -284,10 +284,25 @@ function normalizeSentence(sentence) {
   return sentence.replace(/\s*([,\.!?])\s*/g, "$1").trim();
 }
 
+function formatSentence(sentence) {
+  // Преобразуем первую букву в заглавную
+  sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
+
+  // Добавляем точку в конце предложения, если её нет
+  if (!/[.!?]$/.test(sentence)) {
+    sentence += '.';
+  }
+
+  return sentence;
+}
+
 function checkAnswer() {
   const selectedSentence = normalizeSentence(selectedWords.join(" "));
   const correctSentence = normalizeSentence(currentSentence.norwegian);
-  if (selectedSentence === correctSentence) {
+  const formattedSelectedSentence = formatSentence(selectedSentence);
+  const formattedCorrectSentence = formatSentence(correctSentence);
+
+  if (formattedSelectedSentence === formattedCorrectSentence) {
     document.getElementById("feedback").textContent = "Riktig!";
     document.getElementById("feedback").style.color = "green";
     document.getElementById("correctAnswer").textContent = "";
@@ -297,14 +312,14 @@ function checkAnswer() {
   } else {
     document.getElementById("feedback").textContent = "Feil. Prøv igjen.";
     document.getElementById("feedback").style.color = "red";
-    document.getElementById("correctAnswer").textContent = `Riktig svar: ${currentSentence.norwegian}`;
-    document.getElementById("userAnswer").textContent = `Din svar: ${selectedSentence}`;
+    document.getElementById("correctAnswer").textContent = `Riktig svar: ${formattedCorrectSentence}`;
+    document.getElementById("userAnswer").textContent = `Din svar: ${formattedSelectedSentence}`;
     incorrectCount++;
     document.getElementById("incorrectCount").textContent = incorrectCount;
   }
   selectedWords = [];
   displaySentence();
-  speak(correctSentence); // Озвучиваем правильное предложение
+  speak(formattedCorrectSentence); // Озвучиваем правильное предложение
 }
 
 function speak(text) {
@@ -325,7 +340,8 @@ function startVoiceInput() {
       const words = transcript.split(/\s+/);
       selectedWords = words;
       const selectedSentence = selectedWords.join(" ").replace(/\s*([,\.!?])\s*/g, "$1 ");
-      document.getElementById("sentence").textContent = selectedSentence;
+      const formattedSentence = formatSentence(selectedSentence);
+      document.getElementById("sentence").textContent = formattedSentence;
       document.getElementById("feedback").textContent = "";
       document.getElementById("correctAnswer").textContent = "";
       document.getElementById("userAnswer").textContent = "";
@@ -339,9 +355,19 @@ function startVoiceInput() {
   recognition.start();
 }
 
+function stopVoiceInput() {
+  if (recognition) {
+    recognition.stop();
+  }
+}
+
 window.onload = function() {
   displaySentence();
   document.getElementById("checkAnswer").onclick = checkAnswer;
   document.getElementById("removeLastWord").onclick = removeLastWord;
-  document.getElementById("startVoiceInput").onclick = startVoiceInput;
+  const micButton = document.getElementById("startVoiceInput");
+  micButton.onmousedown = startVoiceInput;
+  micButton.onmouseup = stopVoiceInput;
+  micButton.ontouchstart = startVoiceInput;
+  micButton.ontouchend = stopVoiceInput;
 };
