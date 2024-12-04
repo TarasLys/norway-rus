@@ -267,3 +267,8 @@ p {
     outline: none;
     -webkit-tap-highlight-color: transparent;
 }
+
+#mainMenuButton {
+    outline: none;
+        -webkit-tap-highlight-color: transparent;
+}
