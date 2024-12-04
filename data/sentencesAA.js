@@ -1,4 +1,4 @@
-[
+const sentences = [
  {
     "norwegian": "Jeg bor i Norge.",
     "russian": "Я живу в Норвегии.",
@@ -449,4 +449,7 @@
     "russian": "Я иду к врачу, потому что я болен.",
     "english": "I am going to the doctor because I am sick."
   }
-]
+  
+  
+ 
+];

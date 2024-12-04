@@ -1,5 +1,5 @@
-export const sentences = [
-  { "norwegian": "Hvis det regner blir vi hjemme.", "russian": "Если пойдет дождь, мы останемся дома.", "english": "If it rains, we will stay home." },
+const sentences = [
+      { "norwegian": "Hvis det regner blir vi hjemme.", "russian": "Если пойдет дождь, мы останемся дома.", "english": "If it rains, we will stay home." },
   { "norwegian": "Han sa at han var trøtt.", "russian": "Он сказал, что устал.", "english": "He said that he was tired." },
   { "norwegian": "Vet du om butikken er åpen?", "russian": "Ты знаешь, открыт ли магазин?", "english": "Do you know if the shop is open?" },
   { "norwegian": "Jenta som løp i parken er søsteren min.", "russian": "Девочка, которая бегала в парке, моя сестра.", "english": "The girl who was running in the park is my sister." },
