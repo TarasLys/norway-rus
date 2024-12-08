@@ -559,8 +559,20 @@ let incorrectCount = 0;
 let recognition;
 let selectedLanguage = localStorage.getItem('selectedLanguage') || 'norwegian';
 
+
+
 function getRandomSentence() {
-  return sentences[Math.floor(Math.random() * sentences.length)];
+  const weights = sentences.map((_, index) => (index === sentences.length - 1 ? 5 : 1)); // Увеличиваем вес последнего предложения
+  const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
+  const random = Math.random() * totalWeight;
+  let cumulativeWeight = 0;
+
+  for (let i = 0; i < sentences.length; i++) {
+    cumulativeWeight += weights[i];
+    if (random < cumulativeWeight) {
+      return sentences[i];
+    }
+  }
 }
 
 function shuffleArray(array) {
@@ -712,20 +724,6 @@ window.onload = function() {
 };
 
 
-
-
-
-
-
-
-
-
-  // let currentSentence = {};
-// let selectedWords = [];
-// let correctCount = 0;
-// let incorrectCount = 0;
-// let recognition;
-
 // function getRandomSentence() {
 //   return sentences[Math.floor(Math.random() * sentences.length)];
 // }
@@ -745,8 +743,7 @@ window.onload = function() {
 
 // function displaySentence() {
 //   currentSentence = getRandomSentence();
-//   document.getElementById("russianSentence").textContent = currentSentence.russian;
-//   document.getElementById("englishSentence").textContent = currentSentence.english;
+//   document.getElementById("russianSentence").textContent = currentSentence[selectedLanguage];
 //   document.getElementById("sentence").textContent = "";
 //   const words = currentSentence.norwegian.split(/(\s|,|\.|!|\?)/).filter(word => word.trim() !== "");
 //   const randomExtraWords = getRandomWords(extraWords, 16 - words.length);
@@ -792,10 +789,10 @@ window.onload = function() {
 // }
 
 // function formatSentence(sentence) {
-//   // Преобразуем первую букву в заглавную
+  
 //   sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
 
-//   // Добавляем точку в конце предложения, если её нет
+  
 //   if (!/[.!?]$/.test(sentence)) {
 //     sentence += '.';
 //   }
@@ -826,19 +823,19 @@ window.onload = function() {
 //   }
 //   selectedWords = [];
 //   displaySentence();
-//   speak(formattedCorrectSentence); // Озвучиваем правильное предложение
+//   speak(formattedCorrectSentence); 
 // }
 
 // function speak(text) {
 //   const utterance = new SpeechSynthesisUtterance(text);
-//   utterance.lang = "nb-NO"; // Устанавливаем язык на норвежский букмол
+//   utterance.lang = "nb-NO"; 
 //   window.speechSynthesis.speak(utterance);
 // }
 
 // function startVoiceInput() {
 //   if (!recognition) {
 //     recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-//     recognition.lang = "nb-NO"; // Устанавливаем язык на норвежский букмол
+//     recognition.lang = "nb-NO"; 
 //     recognition.interimResults = false;
 //     recognition.maxAlternatives = 1;
 
@@ -878,3 +875,14 @@ window.onload = function() {
 //   micButton.ontouchstart = startVoiceInput;
 //   micButton.ontouchend = stopVoiceInput;
 // };
+
+
+
+
+
+
+
+
+
+
+  

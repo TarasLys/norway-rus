@@ -1269,8 +1269,19 @@ let incorrectCount = 0;
 let recognition;
 let selectedLanguage = localStorage.getItem('selectedLanguage') || 'norwegian';
 
+
 function getRandomSentence() {
-  return sentences[Math.floor(Math.random() * sentences.length)];
+  const weights = sentences.map((_, index) => (index === sentences.length - 1 ? 5 : 1)); // Увеличиваем вес последнего предложения
+  const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
+  const random = Math.random() * totalWeight;
+  let cumulativeWeight = 0;
+
+  for (let i = 0; i < sentences.length; i++) {
+    cumulativeWeight += weights[i];
+    if (random < cumulativeWeight) {
+      return sentences[i];
+    }
+  }
 }
 
 function shuffleArray(array) {
@@ -1312,7 +1323,7 @@ function selectWord(word, wordElement) {
   document.getElementById("feedback").textContent = "";
   document.getElementById("correctAnswer").textContent = "";
   document.getElementById("userAnswer").textContent = "";
-  speak(word); // Озвучиваем выбранное слово
+  speak(word); 
 }
 
 function removeLastWord() {
@@ -1422,31 +1433,11 @@ window.onload = function() {
 };
 
 
-// const sentences = [
-// [
-//   {
-//     "norwegian": "Kaken som står på bordet, er hjemmelaget.",
-//     "russian": "Торт, который стоит на столе, — домашний.",
-//     "english": "The cake on the table is homemade.",
-//     "arabic": "الكعكة الموجودة على الطاولة محلية الصنع."
-//   },
-//   {
-//     "norwegian": "De ville dra på kino, men filmen var utsolgt.",
-//     "russian": "Они хотели пойти в кино, но билеты были распроданы.",
-//     "english": "They wanted to go to the cinema, but the movie was sold out.",
-//     "arabic": "أرادوا الذهاب إلى السينما، لكن الفيلم كان مبيعاً بالكامل."
-//   }
-// ]
 
 
-//       ];
 
-// const extraWords = ["og", "men", "eller", "fordi", "hvis", "når", "hvorfor", "hvordan", "hva", "hvem", "derfor", "som", "at", "om", "så"];
-// let currentSentence = {};
-// let selectedWords = [];
-// let correctCount = 0;
-// let incorrectCount = 0;
-// let recognition;
+
+
 
 // function getRandomSentence() {
 //   return sentences[Math.floor(Math.random() * sentences.length)];
@@ -1467,8 +1458,7 @@ window.onload = function() {
 
 // function displaySentence() {
 //   currentSentence = getRandomSentence();
-//   document.getElementById("russianSentence").textContent = currentSentence.russian;
-//   document.getElementById("englishSentence").textContent = currentSentence.english;
+//   document.getElementById("russianSentence").textContent = currentSentence[selectedLanguage];
 //   document.getElementById("sentence").textContent = "";
 //   const words = currentSentence.norwegian.split(/(\s|,|\.|!|\?)/).filter(word => word.trim() !== "");
 //   const randomExtraWords = getRandomWords(extraWords, 16 - words.length);
@@ -1600,3 +1590,5 @@ window.onload = function() {
 //   micButton.ontouchstart = startVoiceInput;
 //   micButton.ontouchend = stopVoiceInput;
 // };
+
+
