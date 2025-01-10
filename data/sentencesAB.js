@@ -1,4 +1,5 @@
 const sentences = [
+  
   {
   "norwegian": "Vi dro til parken, så vi kunne nyte solen.",
   "russian": "Мы пошли в парк, чтобы насладиться солнцем.",
@@ -1469,5 +1470,4 @@ const sentences = [
     "arabic": "الفتاة التي تلعب بالكرة هي أختي.",
     "swahili": "Msichana anayepiga mpira ni dada yangu."
   }
-  
 ];
