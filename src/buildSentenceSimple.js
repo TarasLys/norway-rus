@@ -637,204 +637,206 @@ const sentences = [
 
 ];
 
-      const extraWords = [ 
-        "и", "но", "или", "потому что", "если", "когда", "почему", "как", "что", "кто", "поэтому", "который", "что", "о", "так", 
-        "я", "ты", "он", "она", "мы", "они", "один", "одна", "этот", "это", "на", "в", "к", "с", "из", "от", "для", "над", 
-        "под", "или", "или", "сейчас", "здесь", "там", "где", "когда", "тогда", "будет", "может", "хотеть", "должен", "идти", "есть", "пить", 
-        "видеть", "слышать", "быть", "делать", "брать", "иметь", "получать", "спать", "стоять", "сидеть", "лежать", "играть", "работать", "знать"
-      ];
-      let currentSentence = {};
-      let selectedWords = [];
-      let correctCount = 0;
-      let incorrectCount = 0;
-      let recognition;
-      let selectedLanguage = localStorage.getItem('selectedLanguage') || 'russian';
 
-      // Функция для преобразования чисел в слова на русском языке
-      function numberToWords(num) {
-          const ones = ["ноль", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"];
-          const teens = ["десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"];
-          const tens = ["", "", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"];
+const extraWords = [ 
+    "и", "но", "или", "потому что", "если", "когда", "почему", "как", "что", "кто", "поэтому", "который", "что", "о", "так", 
+    "я", "ты", "он", "она", "мы", "они", "один", "одна", "этот", "это", "на", "в", "к", "с", "из", "от", "для", "над", 
+    "под", "или", "или", "сейчас", "здесь", "там", "где", "когда", "тогда", "будет", "может", "хотеть", "должен", "идти", "есть", "пить", 
+    "видеть", "слышать", "быть", "делать", "брать", "иметь", "получать", "спать", "стоять", "сидеть", "лежать", "играть", "работать", "знать"
+];
+let currentSentence = {};
+let selectedWords = [];
+let correctCount = 0;
+let incorrectCount = 0;
+let recognition;
+let selectedLanguage = localStorage.getItem('selectedLanguage') || 'russian';
 
-          if (num < 10) return ones[num];
-          else if (num < 20) return teens[num - 10];
-          else if (num < 100) return tens[Math.floor(num / 10)] + (num % 10 > 0 ? " " + ones[num % 10] : "");
-          else return num.toString(); // Простейший случай для чисел больше 99
-      }
+// Функция для преобразования чисел в слова на русском языке
+function numberToWords(num) {
+    const ones = ["ноль", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"];
+    const teens = ["десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"];
+    const tens = ["", "", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"];
 
-      function convertNumbersToWords(text) {
-          return text.replace(/\b\d+(:\d+)?\b/g, (match) => {
-              if (match.includes(":")) {
-                  const [hours, minutes] = match.split(":").map(num => parseInt(num));
-                  return `${numberToWords(hours)} ${minutes > 0 ? numberToWords(minutes) : "ноль"} минут`;
-              }
-              return numberToWords(parseInt(match));
-          });
-      }
+    if (num < 10) return ones[num];
+    else if (num < 20) return teens[num - 10];
+    else if (num < 100) return tens[Math.floor(num / 10)] + (num % 10 > 0 ? " " + ones[num % 10] : "");
+    else return num.toString(); // Простейший случай для чисел больше 99
+}
 
-      function getRandomSentence() {
-          const weights = sentences.map((_, index) => (index === sentences.length - 1 ? 5 : 1)); // Увеличиваем вес последнего предложения
-          const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
-          const random = Math.random() * totalWeight;
-          let cumulativeWeight = 0;
+function convertNumbersToWords(text) {
+    return text.replace(/\b\d+(:\d+)?\b/g, (match) => {
+        if (match.includes(":")) {
+            const [hours, minutes] = match.split(":").map(num => parseInt(num));
+            return `${numberToWords(hours)} ${minutes === 0 ? "часов" : numberToWords(minutes) + " минут"}`;
+        }
+        return numberToWords(parseInt(match));
+    });
+}
 
-          for (let i = 0; i < sentences.length; i++) {
-              cumulativeWeight += weights[i];
-              if (random < cumulativeWeight) {
-                  return sentences[i];
-              }
-          }
-      }
+function getRandomSentence() {
+    const weights = sentences.map((_, index) => (index === sentences.length - 1 ? 5 : 1)); // Увеличиваем вес последнего предложения
+    const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
+    const random = Math.random() * totalWeight;
+    let cumulativeWeight = 0;
 
-      function shuffleArray(array) {
-          for (let i = array.length - 1; i > 0; i--) {
-              const j = Math.floor(Math.random() * (i + 1));
-              [array[i], array[j]] = [array[j], array[i]];
-          }
-          return array;
-      }
+    for (let i = 0; i < sentences.length; i++) {
+        cumulativeWeight += weights[i];
+        if (random < cumulativeWeight) {
+            return sentences[i];
+        }
+    }
+}
 
-      function getRandomWords(words, count) {
-          const shuffledWords = shuffleArray([...words]);
-          return shuffledWords.slice(0, count);
-      }
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
 
-      function displaySentence() {
-          currentSentence = getRandomSentence();
-          document.getElementById("russianSentence").textContent = currentSentence.norwegian; // обновлено
-          document.getElementById("sentence").textContent = "";
-          const words = currentSentence.russian.split(/(\s|,|\.|!|\?)/).filter(word => word.trim() !== ""); // обновлено
-          const randomExtraWords = getRandomWords(extraWords, 16 - words.length);
-          const allWords = shuffleArray([...words, ...randomExtraWords]);
-          const wordsContainer = document.getElementById("wordsContainer");
-          wordsContainer.innerHTML = "";
-          allWords.forEach(word => {
-              const wordElement = document.createElement("button");
-              wordElement.textContent = word;
-              wordElement.classList.add("word");
-              wordElement.onclick = () => selectWord(word, wordElement);
-              wordsContainer.appendChild(wordElement);
-          });
-      }
+function getRandomWords(words, count) {
+    const shuffledWords = shuffleArray([...words]);
+    return shuffledWords.slice(0, count);
+}
 
-      function selectWord(word, wordElement) {
-          selectedWords.push(word);
-          wordElement.style.display = "none";
-          const selectedSentence = selectedWords.join(" ").replace(/\s*([,\.!?])\s*/g, "$1 ");
-          document.getElementById("sentence").textContent = selectedSentence;
-          document.getElementById("feedback").textContent = "";
-          document.getElementById("correctAnswer").textContent = "";
-          document.getElementById("userAnswer").textContent = "";
-          speak(word); 
-      }
+function displaySentence() {
+    currentSentence = getRandomSentence();
+    document.getElementById("russianSentence").textContent = currentSentence.norwegian; // обновлено
+    document.getElementById("sentence").textContent = "";
+    const words = currentSentence.russian.split(/(\s|,|\.|!|\?)/).filter(word => word.trim() !== ""); // обновлено
+    const randomExtraWords = getRandomWords(extraWords, 16 - words.length);
+    const allWords = shuffleArray([...words, ...randomExtraWords]);
+    const wordsContainer = document.getElementById("wordsContainer");
+    wordsContainer.innerHTML = "";
+    allWords.forEach(word => {
+        const wordElement = document.createElement("button");
+        wordElement.textContent = word;
+        wordElement.classList.add("word");
+        wordElement.onclick = () => selectWord(word, wordElement);
+        wordsContainer.appendChild(wordElement);
+    });
+}
 
-      function removeLastWord() {
-          if (selectedWords.length > 0) {
-              const lastWord = selectedWords.pop();
-              const wordsContainer = document.getElementById("wordsContainer");
-              const wordElements = wordsContainer.getElementsByClassName("word");
+function selectWord(word, wordElement) {
+    selectedWords.push(word);
+    wordElement.style.display = "none";
+    const selectedSentence = selectedWords.join(" ").replace(/\s*([,\.!?])\s*/g, "$1 ");
+    document.getElementById("sentence").textContent = selectedSentence;
+    document.getElementById("feedback").textContent = "";
+    document.getElementById("correctAnswer").textContent = "";
+    document.getElementById("userAnswer").textContent = "";
+    speak(word); 
+}
 
-              for (let i = 0; i < wordElements.length; i++) {
-                  if (wordElements[i].textContent === lastWord && wordElements[i].style.display === "none") {
-                      wordElements[i].style.display = "inline-block";
-                      break;
-                  }
-              }
+function removeLastWord() {
+    if (selectedWords.length > 0) {
+        const lastWord = selectedWords.pop();
+        const wordsContainer = document.getElementById("wordsContainer");
+        const wordElements = wordsContainer.getElementsByClassName("word");
 
-              const selectedSentence = selectedWords.join(" ").replace(/\s*([,\.!?])\s*/g, "$1 ");
-              document.getElementById("sentence").textContent = selectedSentence;
-          }
-      }
+        for (let i = 0; i < wordElements.length; i++) {
+            if (wordElements[i].textContent === lastWord && wordElements[i].style.display === "none") {
+                wordElements[i].style.display = "inline-block";
+                break;
+            }
+        }
 
-      function normalizeSentence(sentence) {
-          return sentence.replace(/\s*([,\.!?])\s*/g, "$1").trim();
-      }
+        const selectedSentence = selectedWords.join(" ").replace(/\s*([,\.!?])\s*/g, "$1 ");
+        document.getElementById("sentence").textContent = selectedSentence;
+    }
+}
 
-      function formatSentence(sentence) {
-          sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
+function normalizeSentence(sentence) {
+    return sentence.replace(/\s*([,\.!?])\s*/g, "$1").trim();
+}
 
-          if (!/[.!?]$/.test(sentence)) {
-              sentence += '.';
-          }
+function formatSentence(sentence) {
+    sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
 
-          return sentence;
-      }
+    if (!/[.!?]$/.test(sentence)) {
+        sentence += '.';
+    }
 
-          function checkAnswer() {
-          const selectedSentence = normalizeSentence(selectedWords.join(" "));
-          const correctSentence = normalizeSentence(currentSentence.russian); // обновлено
-          const formattedSelectedSentence = formatSentence(selectedSentence);
-          const formattedCorrectSentence = formatSentence(correctSentence);
+    return sentence;
+}
 
-          if (formattedSelectedSentence === formattedCorrectSentence) {
-              document.getElementById("feedback").textContent = "Правильно!"; // обновлено
-              document.getElementById("feedback").style.color = "green";
-              document.getElementById("correctAnswer").textContent = "";
-              document.getElementById("userAnswer").textContent = "";
-              correctCount++;
-              document.getElementById("correctCount").textContent = correctCount;
-          } else {
-              document.getElementById("feedback").textContent = "Неправильно. Попробуйте еще раз."; // обновлено
-              document.getElementById("feedback").style.color = "red";
-              document.getElementById("correctAnswer").textContent = `Правильный ответ: ${formattedCorrectSentence}`; // обновлено
-              document.getElementById("userAnswer").textContent = `Ваш ответ: ${formattedSelectedSentence}`; // обновлено
-              incorrectCount++;
-              document.getElementById("incorrectCount").textContent = incorrectCount;
-          }
-          selectedWords = [];
-          displaySentence();
-          speak(formattedCorrectSentence);
-      }
+function checkAnswer() {
+    const selectedSentence = normalizeSentence(selectedWords.join(" "));
+    const correctSentence = normalizeSentence(currentSentence.russian); // обновлено
+    const formattedSelectedSentence = formatSentence(selectedSentence);
+    const formattedCorrectSentence = formatSentence(correctSentence);
 
-      function speak(text) {
-          const utterance = new SpeechSynthesisUtterance(text);
-          utterance.lang = "ru-RU"; // Устанавливаем язык на русский
-          window.speechSynthesis.speak(utterance);
-      }
-      function startVoiceInput() {
-          if (!recognition) {
-              recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-              recognition.lang = "ru-RU"; // Устанавливаем язык на русский
-              recognition.interimResults = false;
-              recognition.maxAlternatives = 1;
+    if (formattedSelectedSentence === formattedCorrectSentence) {
+        document.getElementById("feedback").textContent = "Правильно!"; // обновлено
+        document.getElementById("feedback").style.color = "green";
+        document.getElementById("correctAnswer").textContent = "";
+        document.getElementById("userAnswer").textContent = "";
+        correctCount++;
+        document.getElementById("correctCount").textContent = correctCount;
+    } else {
+        document.getElementById("feedback").textContent = "Неправильно. Попробуйте еще раз."; // обновлено
+        document.getElementById("feedback").style.color = "red";
+        document.getElementById("correctAnswer").textContent = `Правильный ответ: ${formattedCorrectSentence}`; // обновлено
+        document.getElementById("userAnswer").textContent = `Ваш ответ: ${formattedSelectedSentence}`; // обновлено
+        incorrectCount++;
+        document.getElementById("incorrectCount").textContent = incorrectCount;
+    }
+    selectedWords = [];
+    displaySentence();
+    speak(formattedCorrectSentence);
+}
 
-              recognition.onresult = function(event) {
-                  let transcript = event.results[0][0].transcript;
-                  transcript = convertNumbersToWords(transcript); // Преобразование чисел в слова
-                  const words = transcript.split(/\s+/);
-                  selectedWords = words;
-                  const selectedSentence = selectedWords.join(" ").replace(/\s*([,\.!?])\s*/g, "$1 ");
-                  const formattedSentence = formatSentence(selectedSentence);
-                  document.getElementById("sentence").textContent = formattedSentence;
-                  document.getElementById("feedback").textContent = "";
-                  document.getElementById("correctAnswer").textContent = "";
-                  document.getElementById("userAnswer").textContent = "";
-              };
+function speak(text) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "ru-RU"; // Устанавливаем язык на русский
+    window.speechSynthesis.speak(utterance);
+}
 
-              recognition.onerror = function(event) {
-                  console.error("Ошибка распознавания речи: ", event.error);
-              };
-          }
+function startVoiceInput() {
+    if (!recognition) {
+        recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = "ru-RU"; // Устанавливаем язык на русский
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
 
-          recognition.start();
-      }
+        recognition.onresult = function(event) {
+            let transcript = event.results[0][0].transcript;
+            transcript = convertNumbersToWords(transcript); // Преобразование чисел в слова
+            const words = transcript.split(/\s+/);
+            selectedWords = words;
+            const selectedSentence = selectedWords.join(" ").replace(/\s*([,\.!?])\s*/g, "$1 ");
+            const formattedSentence = formatSentence(selectedSentence);
+            document.getElementById("sentence").textContent = formattedSentence;
+            document.getElementById("feedback").textContent = "";
+            document.getElementById("correctAnswer").textContent = "";
+            document.getElementById("userAnswer").textContent = "";
+        };
 
-      function stopVoiceInput() {
-          if (recognition) {
-              recognition.stop();
-          }
-      }
+        recognition.onerror = function(event) {
+            console.error("Ошибка распознавания речи: ", event.error);
+        };
+    }
 
-      window.onload = function() {
-          displaySentence();
-          document.getElementById("checkAnswer").onclick = checkAnswer;
-          document.getElementById("removeLastWord").onclick = removeLastWord;
-          const micButton = document.getElementById("startVoiceInput");
-          micButton.onmousedown = startVoiceInput;
-          micButton.onmouseup = stopVoiceInput;
-          micButton.ontouchstart = startVoiceInput;
-          micButton.ontouchend = stopVoiceInput;
-      };
+    recognition.start();
+}
+
+function stopVoiceInput() {
+    if (recognition) {
+        recognition.stop();
+    }
+}
+
+window.onload = function() {
+    displaySentence();
+    document.getElementById("checkAnswer").onclick = checkAnswer;
+    document.getElementById("removeLastWord").onclick = removeLastWord;
+    const micButton = document.getElementById("startVoiceInput");
+    micButton.onmousedown = startVoiceInput;
+    micButton.onmouseup = stopVoiceInput;
+    micButton.ontouchstart = startVoiceInput;
+    micButton.ontouchend = stopVoiceInput;
+};
 
 
 
